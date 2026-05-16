@@ -1,0 +1,8 @@
+{
+  "name": "Ordin Media",
+  "description": "Professional and artistic website for Ordin Media, a premier music education and cultural exchange company specializing in Bel Canto.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,185 @@
+import {motion} from 'motion/react';
+import { useLanguage } from '../context/LanguageContext';
+import { cn } from '@/src/lib/utils';
+
+const coreTeam = [
+  {
+    name: '徐晨',
+    nameEn: 'Xu Chen',
+    role: '执行艺术总监 & 首席男高音',
+    roleEn: 'Executive Artistic Director & Principal Tenor',
+    description: '活跃于国际舞台的美声男高音，致力于将正统欧派美声带入中国。',
+    descriptionEn: 'A lyric tenor active on international stages, dedicated to bringing authentic European Bel Canto to China.',
+    img: 'https://i.postimg.cc/MpCqJsxW/wei-xin-tu-pian-20260516234424.jpg',
+    link: 'https://www.chenxutenor.com/'
+  }
+];
+
+const advisors = [
+  {
+    name: 'Salvatore Fisichella',
+    nameEn: 'Salvatore Fisichella',
+    role: '传奇男高音 & 国际艺术家顾问',
+    roleEn: 'Legendary Tenor & International Artistic Advisor',
+    description: '当代贝尔坎托歌唱艺术的杰出代表，被誉为“最卓越的贝里尼歌唱家”。',
+    descriptionEn: 'A pre-eminent representative of contemporary Bel Canto, described as the "most exceptional Bellini singer".',
+    img: 'https://i.postimg.cc/26mV79L6/Salvatore-Fisichella-close-up.jpg',
+    link: 'https://en.wikipedia.org/wiki/Salvatore_Fisichella'
+  },
+  {
+    name: 'Francisco Araiza',
+    nameEn: 'Francisco Araiza',
+    role: '世界著名男高音 & 国际艺术家顾问',
+    roleEn: 'World-Renowned Tenor & International Artistic Advisor',
+    description: '莫扎特与罗西尼作品的最佳诠释者之一，当代最具影响力的抒情男高音歌唱家。',
+    descriptionEn: 'One of the best interpreters of Mozart and Rossini, and one of the most influential lyric tenors of our time.',
+    img: 'https://i.postimg.cc/rpWK22LV/1900x1900-000000-80-0-0.jpg',
+    link: 'https://en.wikipedia.org/wiki/Francisco_Araiza'
+  },
+  {
+    name: 'Eva Hess Thaysen',
+    nameEn: 'Eva Hess Thaysen',
+    role: '丹麦皇家音乐学院教授 & 国际艺术家顾问',
+    roleEn: 'Professor at RDAM & International Artistic Advisor',
+    description: '著名丹麦女高音歌唱家，丹麦皇家音乐学院声乐系教授，深耕声乐教育领域，拥有丰富的国际舞台演出经验。',
+    descriptionEn: 'Renowned Danish soprano and Professor at the Royal Danish Academy of Music, specializing in vocal pedagogy with extensive international experience.',
+    img: 'https://i.postimg.cc/5t6vTRsF/wei-xin-tu-pian-20260516230128.png',
+    link: 'https://www.dkdm.dk/en/employee/eva-hess-thaysen'
+  },
+  {
+    name: 'Anne Margrethe Dahl',
+    nameEn: 'Anne Margrethe Dahl',
+    role: '丹麦皇家音乐学院教授 & 国际艺术家顾问',
+    roleEn: 'Professor at RDAM & International Artistic Advisor',
+    description: '著名丹麦女高音歌唱家，曾任丹麦皇家歌剧学院院长，现任 Karlstad 大学 Ingesund 音乐学院教授。',
+    descriptionEn: 'Renowned Danish soprano, former Head of the Royal Danish Opera Academy, currently Professor at Ingesund School of Music, Karlstad University.',
+    img: 'https://i.postimg.cc/5tP0dBPH/anne-margrethe-dahl-26-1.jpg',
+    link: 'https://www.kau.se/en/ingesund-school-music/about-ingesund-school-music/about-us/kontakta-oss/vara-larare/anne-margrethe'
+  }
+];
+
+const planners = [
+  {
+    name: '沈忱',
+    nameEn: 'Shen Chen',
+    role: '执行策划经理',
+    roleEn: 'Executive Planning Manager',
+    description: '负责中心整体艺术项目的统筹规划与执行管理。',
+    descriptionEn: 'Responsible for the overall planning and execution management of the center\'s artistic projects.',
+    img: 'https://i.postimg.cc/pT4Ly2MK/wei-xin-tu-pian-20260517001747.png'
+  },
+  {
+    name: '冯枫',
+    nameEn: 'Feng Feng',
+    role: '市场营销经理',
+    roleEn: 'Marketing Manager',
+    description: '致力于品牌推广、媒体合作及市场战略部署。',
+    descriptionEn: 'Dedicated to brand promotion, media cooperation, and strategic market deployment.',
+    img: 'https://i.postimg.cc/jSgvD92c/wei-xin-tu-pian-20260517000518.jpg'
+  },
+  {
+    name: 'Bogdan Nicola',
+    nameEn: 'Bogdan Nicola',
+    role: '钢琴艺术指导',
+    roleEn: 'Piano Artistic Coach',
+    description: '具有深厚造诣的钢琴艺术家，长期致力于声乐伴奏与艺术指导工作。',
+    descriptionEn: 'A highly accomplished piano artist, long dedicated to vocal accompaniment and artistic coaching.',
+    img: 'https://i.postimg.cc/RhRzcXxr/wei-xin-tu-pian-20260516223745.png',
+    objectPosition: 'object-top',
+  }
+];
+
+export default function Team() {
+  const { t } = useLanguage();
+
+  const TeamGrid = ({ members, title, delayOffset = 0, compact = false }: { members: any[], title: string, delayOffset?: number, compact?: boolean }) => (
+    <div className="mb-24 last:mb-0">
+      <motion.h3 
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        className="text-prestige-gold font-serif text-3xl md:text-4xl mb-16 block border-l-4 border-prestige-gold pl-6 whitespace-nowrap"
+      >
+        {title}
+      </motion.h3>
+      <div className={cn(
+        "grid gap-12",
+        compact 
+          ? "grid-cols-2 md:grid-cols-4 max-w-5xl" 
+          : "grid-cols-1 md:grid-cols-2 lg:grid-cols-2 max-w-4xl"
+      )}>
+        {members.map((member: any, i: number) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: (i + delayOffset) * 0.1 }}
+            className="group"
+          >
+            <div className={cn(
+              "aspect-[4/5] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 mb-6 rounded-sm relative",
+              compact && "md:aspect-[3/4]"
+            )}>
+              <img 
+                src={member.img} 
+                alt={t(member.name, member.nameEn)} 
+                className={cn(
+                  "w-full h-full object-cover transition-transform duration-700 group-hover:scale-105",
+                  member.objectPosition || "object-center"
+                )}
+              />
+              <div className="absolute inset-0 border border-prestige-ink/5 group-hover:border-prestige-gold/30 transition-colors pointer-events-none" />
+            </div>
+            <h3 className={cn(
+              "font-serif mb-1 group-hover:text-prestige-gold transition-colors",
+              compact ? "text-xl" : "text-2xl"
+            )}>{t(member.name, member.nameEn)}</h3>
+            <p className="text-[10px] uppercase font-bold tracking-widest text-prestige-gold mb-4">
+              {t(member.role, member.roleEn)}
+            </p>
+            <p className={cn(
+              "text-prestige-ink/60 text-sm font-light leading-relaxed mb-6",
+              compact && "text-xs"
+            )}>
+              {t(member.description, member.descriptionEn)}
+            </p>
+            {member.link && (
+              <a 
+                href={member.link} 
+                target="_blank" 
+                className="text-[10px] font-bold uppercase tracking-widest border-b border-prestige-gold pb-1"
+              >
+                {t('个人简介', 'View Profile')}
+              </a>
+            )}
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+
+  return (
+    <section id="team" className="py-24 bg-prestige-paper">
+      <div className="max-w-7xl mx-auto px-6">
+        <TeamGrid 
+          members={coreTeam} 
+          title={t('艺术总监', 'Artistic Directors', 'Kunstneriske ledere')} 
+        />
+        
+        <TeamGrid 
+          members={advisors} 
+          title={t('国际艺术家顾问', 'International Artistic Advisors', 'Internationale kunstneriske rådgivere')} 
+          delayOffset={2}
+        />
+
+        <TeamGrid 
+          members={planners} 
+          title={t('行政策划', 'Administrative Planning', 'Administrativ planlægning')} 
+          delayOffset={5}
+          compact
+        />
+      </div>
+    </section>
+  );
+}
