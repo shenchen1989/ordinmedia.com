@@ -10,26 +10,26 @@ export const memberProfiles: Record<string, ProfileData> = {
     roleEn: 'Executive Artistic Director & Principal Tenor',
     roleDa: 'Administrerende kunstnerisk leder & Ledende tenor',
     taglineZh: '美声歌唱家 • 艺术总监',
-    taglineEn: 'Bel Canto Specialist • Artistic Planner',
-    taglineDa: 'Bel Canto Specialist • Kunstnerisk planlægger',
+    taglineEn: 'Bel Canto Specialist • Artistic Director',
+    taglineDa: 'Bel Canto Specialist • Kunstnerisk leder',
     bioZh: `徐晨，活跃于国际舞台的中国青年男高音歌唱家，奧丁傳媒执行艺术总监。他以其卓越的声音控制力、极具感染力的舞台表现力以及对意大利贝尔坎托（Bel Canto）传统的深刻理解而著称。
 
-徐晨拥有上海音乐学院硕士学位，并于丹麦皇家音乐学院获得声乐最高文凭（独唱家学位）。他曾师从多位世界级歌唱家，包括传奇男高音 Salvatore Fisichella 和 Francisco Araiza。
+徐晨拥有上海音乐学院硕士学位，并于丹麦皇家音乐学院获得声乐最高文凭（独唱家学位）。他曾师从多位世界级歌唱家，包括传奇男高音 Salvatore Fisichella 和 Francisco Araiza。他在欧洲多个重要剧院与音乐厅留下了演唱足迹，尤其在拉脱维亚 Operetes teātris 的表现受到了当地媒体的广泛关注与高度评价，被誉为“金嗓子”。
 
 他的职业生涯足迹遍布全球重要舞台。2016年，他在上海东方艺术中心《费加罗的婚礼》中饰演 Basilio 开启首秀；2017年，他在北京国家大剧院《玫瑰骑士》中饰演意大利歌手；2019年，他分别在柏林德尔菲剧院《魔笛》饰演 Tamino，以及在意大利波尔扎诺市立剧院《弄臣》中饰演公爵；2022年，他在阿尔巴尼亚国家歌剧院《罗密欧与朱丽叶》中担纲主角罗密欧。此外，他还多次作为独唱家参演《威尔第安魂曲》、《韩德尔弥赛亚》及《贝多芬第九交响曲》。
 
 在声乐比赛中，他先后荣获第十届中国音乐金钟奖分赛区金奖、第五十一届图卢兹国际声乐比赛决赛奖、2017年维也纳国际音乐比赛一等奖、2018年维也纳新年音乐会比赛一等奖、2021年罗马“Grand Prize Virtuoso”国际音乐比赛一等奖，以及2025年 Marina Zirdziņa 国际声乐比赛一等奖。
 
-徐晨曾与马耳他爱乐乐团、柏林城市交响乐团、维也纳青年交响乐团、上海爱乐乐团、匈牙利国家交响乐团、阿尔巴尼亚国家交响乐团及拉脱维亚国家交响乐团等世界顶尖乐团合作演出。除了活跃在舞台，他还致力于声乐教育，旨在为中欧音乐人才搭建交流的桥梁。`,
+徐晨曾与马耳他爱乐乐团、柏林城市交响乐团、维也纳青年交响乐团、上海爱乐乐团、匈牙利国家交响乐团、阿尔巴尼亚国家交响乐团及拉脱维亚国家交响乐团等世界顶尖乐团合作演出。除了活跃在演出舞台，徐晨还致力于声乐教育与文化交流。他多次举办国际大师班，旨在将欧洲正统的美声唱法引入中国，并为中欧音乐人才搭建交流的桥梁。`,
     bioEn: `Xu Chen is a young Chinese tenor active on international stages and the Executive Artistic Director of Ordin Media. He is known for his exceptional vocal control, charismatic stage presence, and profound understanding of the Italian Bel Canto tradition.
 
-He holds a master's degree from the Shanghai Conservatory of Music and a soloist degree (top degree) from the Royal Danish Academy of Music. He studied under world-renowned singers, including legendary tenors Salvatore Fisichella and Francisco Araiza.
+He holds a master's degree from the Shanghai Conservatory of Music and a soloist degree (top degree) from the Royal Danish Academy of Music. He studied under world-renowned singers, including legendary tenors Salvatore Fisichella and Francisco Araiza. He has performed in major European theaters and concert halls, particularly in Latvia's Operetes teātris, where his performance was highly praised and he was dubbed the "Golden Voice".
 
 His operatic journey includes notable debuts at major venues: Basilio in "Le Nozze di Figaro" (Shanghai Oriental Art Center, 2016), the Italian singer in "Der Rosenkavalier" (National Centre for the Performing Arts, Beijing, 2017), Tamino in "Die Zauberflöte" (Delphi Theatre, Berlin, 2019), Duca in "Rigoletto" (Teatro Comunale di Bolzano, 2019), and Romeo in "Roméo et Juliette" (Albanian National Opera House, 2022). He has also performed as a soloist in masterpieces such as Verdi's "Requiem", Handel's "Messiah", and Beethoven's "Symphony No. 9".
 
 Xu Chen has received numerous prestigious awards, including the Gold Award at the 10th China Golden Bell Award (regional), Finalist Award at the 51st Toulouse International Vocal Competition, First Prize at the 2017 Vienna International Music Competition, First Prize at the 2018 Vienna New Year Concert Competition, First Prize at the 2021 Rome "Grand Prize Virtuoso", and First Prize at the 2025 Marina Zirdziņa International Vocal Competition.
 
-He has collaborated with world-class orchestras such as the Malta Philharmonic, Berlin City Symphony, Vienna Youth Symphony, Shanghai Philharmonic, Hungarian National Symphony, and Latvian National Symphony. Beyond performing, he is committed to vocal education and building cultural bridges between China and Europe.`,
+He has collaborated with world-class orchestras such as the Malta Philharmonic, Berlin City Symphony, Vienna Youth Symphony, Shanghai Philharmonic, Hungarian National Symphony, and Latvian National Symphony. Beyond performing, he is committed to vocal education and cultural exchange, hosting international masterclasses to bridge musical talents between China and Europe.`,
     bioDa: `Xu Chen er en ung kinesisk tenor aktiv på internationale scener og administrerende kunstnerisk leder af Ordin Media. Han er kendt for sin enestående stemmekontrol, karismatiske scenetilstedeværelse og dybe forståelse af den italienske Bel Canto-tradition.
 
 Han er uddannet med en kandidatgrad fra Shanghai Musikkonservatorium og har modtaget solistklassen (højeste grad) fra Det Kongelige Danske Musikkonservatorium. Han har studeret under verdenskendte sangere, herunder de legendariske tenorer Salvatore Fisichella og Francisco Araiza.
