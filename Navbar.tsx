@@ -102,16 +102,6 @@ export default function Navbar() {
             <Globe className="w-3 h-3 opacity-40 shrink-0" />
             <div className="flex items-center gap-2 text-[10px] font-black tracking-widest uppercase">
               <button 
-                onClick={() => setLanguage('zh')}
-                className={cn(
-                  "hover:text-prestige-gold transition-colors",
-                  language === 'zh' ? "text-prestige-gold" : "opacity-50"
-                )}
-              >
-                CN
-              </button>
-              <span className="opacity-20 text-[8px]">/</span>
-              <button 
                 onClick={() => setLanguage('en')}
                 className={cn(
                   "hover:text-prestige-gold transition-colors",
@@ -119,6 +109,16 @@ export default function Navbar() {
                 )}
               >
                 ENG
+              </button>
+              <span className="opacity-20 text-[8px]">/</span>
+              <button 
+                onClick={() => setLanguage('zh')}
+                className={cn(
+                  "hover:text-prestige-gold transition-colors",
+                  language === 'zh' ? "text-prestige-gold" : "opacity-50"
+                )}
+              >
+                CN
               </button>
               <span className="opacity-20 text-[8px]">/</span>
               <button 
@@ -171,16 +171,6 @@ export default function Navbar() {
               <Globe className="w-4 h-4 opacity-40 shrink-0" />
               <div className="flex items-center gap-3 text-[10px] font-black tracking-widest uppercase">
                 <button 
-                  onClick={() => { setLanguage('zh'); setMobileMenuOpen(false); }}
-                  className={cn(
-                    "hover:text-prestige-gold transition-colors",
-                    language === 'zh' ? "text-prestige-gold" : "text-prestige-ink/50"
-                  )}
-                >
-                  CN
-                </button>
-                <span className="opacity-20 text-[8px]">/</span>
-                <button 
                   onClick={() => { setLanguage('en'); setMobileMenuOpen(false); }}
                   className={cn(
                     "hover:text-prestige-gold transition-colors",
@@ -188,6 +178,16 @@ export default function Navbar() {
                   )}
                 >
                   ENG
+                </button>
+                <span className="opacity-20 text-[8px]">/</span>
+                <button 
+                  onClick={() => { setLanguage('zh'); setMobileMenuOpen(false); }}
+                  className={cn(
+                    "hover:text-prestige-gold transition-colors",
+                    language === 'zh' ? "text-prestige-gold" : "text-prestige-ink/50"
+                  )}
+                >
+                  CN
                 </button>
                 <span className="opacity-20 text-[8px]">/</span>
                 <button 

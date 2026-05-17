@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +42,7 @@
     <script>
         function app() {
             return {
-                lang: 'zh',
+                lang: 'en',
                 page: 'home',
                 isScrolled: false,
                 mobileMenuOpen: false,
@@ -184,9 +184,9 @@
                 <div :class="isScrolled ? 'border-prestige-ink/10' : 'border-white/20 text-white'" class="flex items-center gap-3 px-4 py-2 border transition-all rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-40 shrink-0"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     <div class="flex items-center gap-2 text-[10px] font-black tracking-widest uppercase">
-                        <button @click="lang = 'zh'" :class="lang === 'zh' ? 'text-prestige-gold' : 'opacity-50'" class="hover:text-prestige-gold transition-colors">CN</button>
-                        <span class="opacity-20 text-[8px]">/</span>
                         <button @click="lang = 'en'" :class="lang === 'en' ? 'text-prestige-gold' : 'opacity-50'" class="hover:text-prestige-gold transition-colors">ENG</button>
+                        <span class="opacity-20 text-[8px]">/</span>
+                        <button @click="lang = 'zh'" :class="lang === 'zh' ? 'text-prestige-gold' : 'opacity-50'" class="hover:text-prestige-gold transition-colors">CN</button>
                         <span class="opacity-20 text-[8px]">/</span>
                         <button @click="lang = 'da'" :class="lang === 'da' ? 'text-prestige-gold' : 'opacity-50'" class="hover:text-prestige-gold transition-colors">DA</button>
                     </div>
@@ -225,9 +225,9 @@
                 <div class="flex items-center gap-3 px-4 py-2 border border-prestige-ink/20 w-fit rounded-full text-prestige-ink">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-40 shrink-0"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     <div class="flex items-center gap-3 text-[10px] font-black tracking-widest uppercase">
-                        <button @click="lang = 'zh'; mobileMenuOpen = false" :class="lang === 'zh' ? 'text-prestige-gold' : 'opacity-50'" class="hover:text-prestige-gold transition-colors">CN</button>
-                        <span class="opacity-20 text-[8px]">/</span>
                         <button @click="lang = 'en'; mobileMenuOpen = false" :class="lang === 'en' ? 'text-prestige-gold' : 'opacity-50'" class="hover:text-prestige-gold transition-colors">ENG</button>
+                        <span class="opacity-20 text-[8px]">/</span>
+                        <button @click="lang = 'zh'; mobileMenuOpen = false" :class="lang === 'zh' ? 'text-prestige-gold' : 'opacity-50'" class="hover:text-prestige-gold transition-colors">CN</button>
                         <span class="opacity-20 text-[8px]">/</span>
                         <button @click="lang = 'da'; mobileMenuOpen = false" :class="lang === 'da' ? 'text-prestige-gold' : 'opacity-50'" class="hover:text-prestige-gold transition-colors">DA</button>
                     </div>
