@@ -39,7 +39,7 @@ export default function App() {
           
           <div className="max-w-7xl mx-auto px-6 py-24 flex items-center gap-10 opacity-10">
             <div className="h-[1px] flex-1 bg-prestige-ink" />
-            <span className="font-serif italic text-2xl">Bel Canto Spirit</span>
+            <span className="font-serif italic text-2xl">{t('美声精神', 'Bel Canto Spirit', 'Bel Canto-ånd')}</span>
             <div className="h-[1px] flex-1 bg-prestige-ink" />
           </div>
 
