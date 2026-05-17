@@ -6,36 +6,48 @@ const events = [
   {
     tag: 'Report',
     tagZh: '媒体报道',
+    tagDa: 'Rapport',
     title: '“金嗓子”徐晨将亮相轻歌剧院“Amore musica”音乐会',
     titleEn: '"Golden Voice" Xu Chen to Perform in Operetta Theatre\'s "Amore musica" Concerts',
+    titleDa: '"Den gyldne stemme" Xu Chen optræder i Operetteteatrets "Amore musica" koncerter',
     subtitle: 'European Media Highlights Xu Chen\'s Upcoming Performance in Latvia',
     subtitleZh: '欧洲媒体专题报道：徐晨受邀参加拉脱维亚 Operetes teātris 音乐会',
+    subtitleDa: 'Europæiske medier fremhæver Xu Chens kommende optræden i Letland',
     date: 'October 2024',
     dateZh: '2024年10月',
+    dateDa: 'Oktober 2024',
     img: 'https://i.postimg.cc/28DtYQRY/wei-xin-tu-pian-20260516231249.png',
     link: 'https://sejas.tvnet.lv/8382045/zelta-balss-ipasnieks-cens-sjujs-uzstasies-operetes-teatra-koncertos-amore-musica'
   },
   {
     tag: 'Masterclass',
     tagZh: '大师班',
+    tagDa: 'Masterclass',
     title: '2024 夏季美声大师班',
     titleEn: '2024 Summer Bel Canto Masterclass',
+    titleDa: '2024 Sommer Bel Canto Masterclass',
     subtitle: 'Summer Bel Canto Masterclass in Malta',
     subtitleZh: '马耳他夏季贝尔坎托大师班',
+    subtitleDa: 'Sommer Bel Canto Masterclass på Malta',
     date: 'July 2024',
     dateZh: '2024年7月',
+    dateDa: 'Juli 2024',
     img: 'https://i.postimg.cc/ydNVvMnz/wei-xin-tu-pian-20260516232416.jpg',
     link: 'https://timesofmalta.com/article/opera-star-jose-cura-to-deliver-masterclasses-in-malta.895654'
   },
   {
     tag: 'Tour',
     tagZh: '艺术游学',
+    tagDa: 'Rundrejse',
     title: '欧洲顶级剧院艺术游览',
     titleEn: 'European Opera House Arts Tour',
+    titleDa: 'Europæisk operahus kunstturné',
     subtitle: 'Elite Theater & Conservatory Tour',
     subtitleZh: '顶级剧院与音乐学院深度游览',
+    subtitleDa: 'Elite teater- og konservatorietur',
     date: '2026',
     dateZh: '2026年',
+    dateDa: '2026',
     img: 'https://i.postimg.cc/pdLT65X4/55810245ff1010e4e8bd95823dc19b50.jpg'
   }
 ];
@@ -55,11 +67,11 @@ export default function Events() {
       <div className="lg:w-1/3 aspect-video lg:aspect-[4/3] overflow-hidden relative">
         <img 
           src={event.img} 
-          alt={t(event.title, event.titleEn)} 
+          alt={t(event.title, event.titleEn, event.titleDa)} 
           className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
         />
         <div className="absolute top-4 left-4 px-3 py-1 bg-white text-prestige-ink text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">
-          {t(event.tagZh, event.tag)}
+          {t(event.tagZh, event.tag, event.tagDa)}
         </div>
       </div>
 
@@ -67,14 +79,14 @@ export default function Events() {
         <div className="flex items-center gap-3 text-prestige-gold mb-4">
           <Calendar size={14} />
           <span className="text-xs font-bold uppercase tracking-[0.2em]">
-            {t(event.dateZh, event.date)}
+            {t(event.dateZh, event.date, event.dateDa)}
           </span>
         </div>
         <h3 className="text-3xl md:text-4xl font-serif mb-2 group-hover:translate-x-2 transition-transform">
-          {t(event.title, event.titleEn)}
+          {t(event.title, event.titleEn, event.titleDa)}
         </h3>
         <p className="text-prestige-ink/50 serif-italic text-lg md:text-xl group-hover:translate-x-2 transition-transform delay-75">
-          {t(event.subtitleZh, event.subtitle)}
+          {t(event.subtitleZh, event.subtitle, event.subtitleDa)}
         </p>
         <div className="mt-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
           {t(event.link ? '阅读全文' : '了解更多', event.link ? 'Read Full Article' : 'Learn More', event.link ? 'Læs hele artiklen' : 'Lær mere')} <ArrowRight size={14} />

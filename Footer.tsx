@@ -126,11 +126,11 @@ export default function Footer() {
 
         <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[10px] uppercase tracking-widest text-white/30">
-            © 2025 {t('奧丁傳媒', 'Ordin Media')}. All Rights Reserved.
+            © 2025 {t('奧丁傳媒', 'Ordin Media', 'Ordin Media')}. All Rights Reserved.
           </p>
           <div className="flex gap-8 text-[10px] uppercase tracking-widest text-white/30">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-white transition-colors">{t('隐私政策', 'Privacy Policy', 'Fortrolighedspolitik')}</a>
+            <a href="#" className="hover:text-white transition-colors">{t('服务条款', 'Terms of Service', 'Servicevilkår')}</a>
           </div>
         </div>
       </div>

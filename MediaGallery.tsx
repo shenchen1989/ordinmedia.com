@@ -8,48 +8,60 @@ const mediaItems = [
     type: 'image',
     title: 'Milan Masterclass 2023',
     titleZh: '2023 米兰大师班',
+    titleDa: 'Milan Masterclass 2023',
     category: 'Education',
     categoryZh: '艺术教育',
+    categoryDa: 'Uddannelse',
     thumbnail: 'https://i.postimg.cc/bJrbXFL9/wei-xin-tu-pian-20251114232025.jpg'
   },
   {
     type: 'image',
     title: 'Beijing Gala Concert',
     titleZh: '北京盛典音乐会',
+    titleDa: 'Beijing Galla Koncert',
     category: 'Concert',
     categoryZh: '音乐会',
+    categoryDa: 'Koncert',
     thumbnail: 'https://i.postimg.cc/wjk0gZ5r/65A0827-2.jpg'
   },
   {
     type: 'image',
     title: 'Vocal Performance',
     titleZh: '声乐演出回放',
+    titleDa: 'Vokaloptræden',
     category: 'Performance',
     categoryZh: '舞台演出',
+    categoryDa: 'Optræden',
     thumbnail: 'https://i.postimg.cc/zvC8BqGT/wei-xin-tu-pian-20260516231556.jpg'
   },
   {
     type: 'image',
     title: 'Orchestral Harmony',
     titleZh: '交响乐团合奏',
+    titleDa: 'Orkesterharmoni',
     category: 'Concert',
     categoryZh: '音乐盛典',
+    categoryDa: 'Koncert',
     thumbnail: 'https://i.postimg.cc/SRv7nb18/orchestra.jpg'
   },
   {
     type: 'image',
     title: 'International Masterclass',
     titleZh: '国际大师班交流',
+    titleDa: 'International Masterclass',
     category: 'Education',
     categoryZh: '艺术教育',
+    categoryDa: 'Uddannelse',
     thumbnail: 'https://i.postimg.cc/MK7hfsbm/ee32b1c303f038bb01ac45ece2df3f9f.jpg'
   },
   {
     type: 'image',
     title: 'Musical Gala Moment',
     titleZh: '音乐盛典瞬间',
+    titleDa: 'Musikalsk gallamoment',
     category: 'Concert',
     categoryZh: '音乐盛典',
+    categoryDa: 'Koncert',
     thumbnail: 'https://i.postimg.cc/Ssb69GGt/wei-xin-tu-pian-20260516231802.png'
   }
 ];
@@ -107,15 +119,16 @@ export default function MediaGallery() {
             >
               <img 
                 src={item.thumbnail} 
-                alt={t(item.titleZh, item.title)} 
+                alt={t(item.titleZh, item.title, item.titleDa)} 
                 className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
               />
               
               <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
               
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center gap-2">
                   <ImageIcon className="text-white/50 w-10 h-10" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/50">{t(item.categoryZh, item.category, item.categoryDa)}</span>
                 </div>
               </div>
             </motion.div>

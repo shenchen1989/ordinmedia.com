@@ -6,10 +6,13 @@ const coreTeam = [
   {
     name: '徐晨',
     nameEn: 'Xu Chen',
+    nameDa: 'Xu Chen',
     role: '执行艺术总监 & 首席男高音',
     roleEn: 'Executive Artistic Director & Principal Tenor',
+    roleDa: 'Administrerende kunstnerisk leder & Ledende tenor',
     description: '活跃于国际舞台的美声男高音，致力于将正统欧派美声带入中国。',
     descriptionEn: 'A lyric tenor active on international stages, dedicated to bringing authentic European Bel Canto to China.',
+    descriptionDa: 'En lyrisk tenor aktiv på internationale scener, dedikeret til at bringe autentisk europæisk Bel Canto til Kina.',
     img: 'https://i.postimg.cc/MpCqJsxW/wei-xin-tu-pian-20260516234424.jpg',
     link: 'https://www.chenxutenor.com/'
   }
@@ -19,40 +22,52 @@ const advisors = [
   {
     name: 'Salvatore Fisichella',
     nameEn: 'Salvatore Fisichella',
+    nameDa: 'Salvatore Fisichella',
     role: '传奇男高音 & 国际艺术家顾问',
     roleEn: 'Legendary Tenor & International Artistic Advisor',
+    roleDa: 'Legendarisk tenor og international kunstnerisk rådgiver',
     description: '当代贝尔坎托歌唱艺术的杰出代表，被誉为“最卓越的贝里尼歌唱家”。',
     descriptionEn: 'A pre-eminent representative of contemporary Bel Canto, described as the "most exceptional Bellini singer".',
+    descriptionDa: 'En fremtrædende repræsentant for moderne Bel Canto, beskrevet som den "mest exceptionelle Bellini-sanger".',
     img: 'https://i.postimg.cc/26mV79L6/Salvatore-Fisichella-close-up.jpg',
     link: 'https://en.wikipedia.org/wiki/Salvatore_Fisichella'
   },
   {
     name: 'Francisco Araiza',
     nameEn: 'Francisco Araiza',
+    nameDa: 'Francisco Araiza',
     role: '世界著名男高音 & 国际艺术家顾问',
     roleEn: 'World-Renowned Tenor & International Artistic Advisor',
+    roleDa: 'Verdensberømt tenor og international kunstnerisk rådgiver',
     description: '莫扎特与罗西尼作品的最佳诠释者之一，当代最具影响力的抒情男高音歌唱家。',
     descriptionEn: 'One of the best interpreters of Mozart and Rossini, and one of the most influential lyric tenors of our time.',
+    descriptionDa: 'En af de bedste fortolkere af Mozart og Rossini og en af de mest indflydelsesrige lyriske tenorer i vor tid.',
     img: 'https://i.postimg.cc/rpWK22LV/1900x1900-000000-80-0-0.jpg',
     link: 'https://en.wikipedia.org/wiki/Francisco_Araiza'
   },
   {
     name: 'Eva Hess Thaysen',
     nameEn: 'Eva Hess Thaysen',
+    nameDa: 'Eva Hess Thaysen',
     role: '丹麦皇家音乐学院教授 & 国际艺术家顾问',
     roleEn: 'Professor at RDAM & International Artistic Advisor',
+    roleDa: 'Professor ved DKDM og international kunstnerisk rådgiver',
     description: '著名丹麦女高音歌唱家，丹麦皇家音乐学院声乐系教授，深耕声乐教育领域，拥有丰富的国际舞台演出经验。',
     descriptionEn: 'Renowned Danish soprano and Professor at the Royal Danish Academy of Music, specializing in vocal pedagogy with extensive international experience.',
+    descriptionDa: 'Anerkendt dansk sopran og professor ved Det Kongelige Danske Musikkonservatorium, specialiseret i sangpædagogik med omfattende international erfaring.',
     img: 'https://i.postimg.cc/5t6vTRsF/wei-xin-tu-pian-20260516230128.png',
     link: 'https://www.dkdm.dk/en/employee/eva-hess-thaysen'
   },
   {
     name: 'Anne Margrethe Dahl',
     nameEn: 'Anne Margrethe Dahl',
+    nameDa: 'Anne Margrethe Dahl',
     role: '丹麦皇家音乐学院教授 & 国际艺术家顾问',
     roleEn: 'Professor at RDAM & International Artistic Advisor',
+    roleDa: 'Professor ved DKDM og international kunstnerisk rådgiver',
     description: '著名丹麦女高音歌唱家，曾任丹麦皇家歌剧学院院长，现任 Karlstad 大学 Ingesund 音乐学院教授。',
     descriptionEn: 'Renowned Danish soprano, former Head of the Royal Danish Opera Academy, currently Professor at Ingesund School of Music, Karlstad University.',
+    descriptionDa: 'Anerkendt dansk sopran, tidligere forstander for Det Kongelige Danske Operaakademi, nuværende professor ved Ingesund Musikhögskola, Karlstad Universitet.',
     img: 'https://i.postimg.cc/5tP0dBPH/anne-margrethe-dahl-26-1.jpg',
     link: 'https://www.kau.se/en/ingesund-school-music/about-ingesund-school-music/about-us/kontakta-oss/vara-larare/anne-margrethe'
   }
@@ -62,28 +77,37 @@ const planners = [
   {
     name: '沈忱',
     nameEn: 'Shen Chen',
+    nameDa: 'Shen Chen',
     role: '执行策划经理',
     roleEn: 'Executive Planning Manager',
+    roleDa: 'Administrerende planlægningschef',
     description: '负责中心整体艺术项目的统筹规划与执行管理。',
     descriptionEn: 'Responsible for the overall planning and execution management of the center\'s artistic projects.',
+    descriptionDa: 'Ansvarlig for den overordnede planlægning og udførelse af centerets kunstneriske projekter.',
     img: 'https://i.postimg.cc/pT4Ly2MK/wei-xin-tu-pian-20260517001747.png'
   },
   {
     name: '冯枫',
     nameEn: 'Feng Feng',
+    nameDa: 'Feng Feng',
     role: '市场营销经理',
     roleEn: 'Marketing Manager',
+    roleDa: 'Marketingchef',
     description: '致力于品牌推广、媒体合作及市场战略部署。',
     descriptionEn: 'Dedicated to brand promotion, media cooperation, and strategic market deployment.',
+    descriptionDa: 'Dedikeret til brandpromovering, mediesamarbejde og strategisk markedspositionering.',
     img: 'https://i.postimg.cc/jSgvD92c/wei-xin-tu-pian-20260517000518.jpg'
   },
   {
     name: 'Bogdan Nicola',
     nameEn: 'Bogdan Nicola',
+    nameDa: 'Bogdan Nicola',
     role: '钢琴艺术指导',
     roleEn: 'Piano Artistic Coach',
+    roleDa: 'Klaver- og kunstnerisk coach',
     description: '具有深厚造诣的钢琴艺术家，长期致力于声乐伴奏与艺术指导工作。',
     descriptionEn: 'A highly accomplished piano artist, long dedicated to vocal accompaniment and artistic coaching.',
+    descriptionDa: 'En højt kvalificeret klaverkunstner, længe dedikeret til sangledsagelse og kunstnerisk vejledning.',
     img: 'https://i.postimg.cc/RhRzcXxr/wei-xin-tu-pian-20260516223745.png',
     objectPosition: 'object-top',
   }
@@ -123,7 +147,7 @@ export default function Team() {
             )}>
               <img 
                 src={member.img} 
-                alt={t(member.name, member.nameEn)} 
+                alt={t(member.name, member.nameEn, member.nameDa)} 
                 className={cn(
                   "w-full h-full object-cover transition-transform duration-700 group-hover:scale-105",
                   member.objectPosition || "object-center"
@@ -134,15 +158,15 @@ export default function Team() {
             <h3 className={cn(
               "font-serif mb-1 group-hover:text-prestige-gold transition-colors",
               compact ? "text-xl" : "text-2xl"
-            )}>{t(member.name, member.nameEn)}</h3>
+            )}>{t(member.name, member.nameEn, member.nameDa)}</h3>
             <p className="text-[10px] uppercase font-bold tracking-widest text-prestige-gold mb-4">
-              {t(member.role, member.roleEn)}
+              {t(member.role, member.roleEn, member.roleDa)}
             </p>
             <p className={cn(
               "text-prestige-ink/60 text-sm font-light leading-relaxed mb-6",
               compact && "text-xs"
             )}>
-              {t(member.description, member.descriptionEn)}
+              {t(member.description, member.descriptionEn, member.descriptionDa)}
             </p>
             {member.link && (
               <a 
@@ -150,7 +174,7 @@ export default function Team() {
                 target="_blank" 
                 className="text-[10px] font-bold uppercase tracking-widest border-b border-prestige-gold pb-1"
               >
-                {t('个人简介', 'View Profile')}
+                {t('个人简介', 'View Profile', 'Se profil')}
               </a>
             )}
           </motion.div>

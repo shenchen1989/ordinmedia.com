@@ -83,7 +83,7 @@ export default function Hero() {
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 text-white/20"
       >
-        <span className="text-[10px] uppercase font-bold tracking-[0.5em]">Scroll</span>
+        <span className="text-[10px] uppercase font-bold tracking-[0.5em]">{t('向下滚动', 'Scroll', 'Rul')}</span>
         <div className="w-[1px] h-20 bg-gradient-to-b from-white/20 to-transparent" />
       </motion.div>
     </section>
