@@ -1,13 +1,464 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ordin Media | Bel Canto Excellence</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordin Media | 奧丁傳媒 - Bel Canto Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        prestige: {
+                            gold: '#C5A059',
+                            paper: '#F9F7F2',
+                            ink: '#1A1A1A',
+                            cream: '#F4F1EA',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] { display: none !important; }
+        .serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
+        html { scroll-behavior: smooth; }
+        body { background-color: #F9F7F2; color: #1A1A1A; }
+    </style>
+</head>
+<body x-data="{ 
+    lang: 'zh', 
+    isScrolled: false, 
+    mobileMenuOpen: false,
+    selectedImage: null,
+    t(zh, en, da) {
+        if (this.lang === 'da' && da) return da;
+        if (this.lang === 'en') return en;
+        return zh;
+    }
+}" @scroll.window="isScrolled = window.scrollY > 50">
 
+    <!-- Navigation -->
+    <nav :class="isScrolled ? 'bg-prestige-paper/90 backdrop-blur-md py-4 border-prestige-ink/10' : 'bg-transparent py-8 border-transparent'" 
+         class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between gap-12">
+            <div class="flex items-center gap-1 group cursor-pointer flex-shrink-0" @click="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="relative flex items-center">
+                    <span :class="isScrolled ? 'scale-90' : 'scale-100'" class="text-7xl md:text-8xl font-serif text-prestige-gold leading-none transition-all duration-500">O</span>
+                    <div class="flex flex-col ml-1 mt-1">
+                        <div class="flex items-baseline gap-4 whitespace-nowrap">
+                            <h1 :class="isScrolled ? 'text-prestige-ink' : 'text-white'" class="text-2xl md:text-3xl font-serif tracking-tight leading-none transition-colors duration-500">
+                                rdin <span class="ml-1">M</span>edia
+                            </h1>
+                            <template x-if="lang === 'zh'">
+                                <span :class="isScrolled ? 'text-prestige-ink' : 'text-white'" class="text-xl md:text-2xl font-black tracking-tighter transition-colors duration-500 uppercase">奧丁傳媒</span>
+                            </template>
+                        </div>
+                        <p :class="isScrolled ? 'text-prestige-ink/40' : 'text-white/40'" class="text-[7px] md:text-[8px] uppercase tracking-[0.4em] font-sans mt-1 leading-none transition-colors duration-500 font-bold">Bel Canto Excellence</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-8 lg:gap-12">
+                <template x-for="link in [
+                    { name: '首页', nameEn: 'Home', nameDa: 'Hjem', href: '#home' },
+                    { name: '团队', nameEn: 'Team', nameDa: 'Team', href: '#team' },
+                    { name: '业务领域', nameEn: 'Services', nameDa: 'Tjenester', href: '#services' },
+                    { name: '影音资料', nameEn: 'Media', nameDa: 'Medier', href: '#media' },
+                    { name: '活动动态', nameEn: 'Events', nameDa: 'Begivenheder', href: '#events' },
+                    { name: '联系我们', nameEn: 'Contact', nameDa: 'Kontakt', href: '#contact' }
+                ]">
+                    <a :href="link.href" :class="isScrolled ? 'text-prestige-ink' : 'text-white hover:text-prestige-gold'" class="group relative flex flex-col items-center transition-colors duration-500">
+                        <span class="text-sm font-medium tracking-wide whitespace-nowrap" x-text="t(link.name, link.nameEn, link.nameDa)"></span>
+                        <template x-if="lang === 'zh'">
+                            <span class="text-[9px] uppercase tracking-tighter opacity-40 group-hover:opacity-100 transition-opacity" x-text="link.nameEn"></span>
+                        </template>
+                        <div class="absolute -bottom-2 w-0 h-[1px] bg-prestige-gold group-hover:w-full transition-all duration-300"></div>
+                    </a>
+                </template>
+
+                <!-- Language Switcher -->
+                <div :class="isScrolled ? 'border-prestige-ink/10' : 'border-white/20 text-white'" class="flex items-center gap-3 px-4 py-2 border transition-all rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-40 shrink-0"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <div class="flex items-center gap-2 text-[10px] font-black tracking-widest uppercase">
+                        <button @click="lang = 'zh'" :class="lang === 'zh' ? 'text-prestige-gold' : 'opacity-50'" class="hover:text-prestige-gold transition-colors">CN</button>
+                        <span class="opacity-20 text-[8px]">/</span>
+                        <button @click="lang = 'en'" :class="lang === 'en' ? 'text-prestige-gold' : 'opacity-50'" class="hover:text-prestige-gold transition-colors">ENG</button>
+                        <span class="opacity-20 text-[8px]">/</span>
+                        <button @click="lang = 'da'" :class="lang === 'da' ? 'text-prestige-gold' : 'opacity-50'" class="hover:text-prestige-gold transition-colors">DA</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" :class="isScrolled ? 'text-prestige-ink' : 'text-white'" class="md:hidden p-2 transition-colors duration-500">
+                <svg x-show="!mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x1="4" x2="20" x2="20" y1="12" y2="12"/><line x1="4" x1="4" x2="20" x2="20" y1="6" y2="6"/><line x1="4" x1="4" x2="20" x2="20" y1="18" y2="18"/></svg>
+                <svg x-show="mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x-cloak><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" 
+             x-transition:enter="transition ease-out duration-300" 
+             x-transition:enter-start="opacity-0 -translate-y-4" 
+             x-transition:enter-end="opacity-100 translate-y-0"
+             class="md:hidden bg-prestige-paper border-b border-prestige-ink/10 overflow-hidden" x-cloak>
+            <div class="px-6 py-8 flex flex-col gap-6">
+                <template x-for="link in [
+                    { name: '首页', nameEn: 'Home', nameDa: 'Hjem', href: '#home' },
+                    { name: '团队', nameEn: 'Team', nameDa: 'Team', href: '#team' },
+                    { name: '业务领域', nameEn: 'Services', nameDa: 'Tjenester', href: '#services' },
+                    { name: '影音资料', nameEn: 'Media', nameDa: 'Medier', href: '#media' },
+                    { name: '活动动态', nameEn: 'Events', nameDa: 'Begivenheder', href: '#events' },
+                    { name: '联系我们', nameEn: 'Contact', nameDa: 'Kontakt', href: '#contact' }
+                ]">
+                    <a :href="link.href" @click="mobileMenuOpen = false" class="flex flex-col">
+                        <span class="text-xl font-serif whitespace-nowrap" x-text="t(link.name, link.nameEn, link.nameDa)"></span>
+                        <template x-if="lang === 'zh'">
+                            <span class="text-xs uppercase tracking-widest opacity-50" x-text="link.nameEn"></span>
+                        </template>
+                    </a>
+                </template>
+                <div class="flex items-center gap-3 px-4 py-2 border border-prestige-ink/20 w-fit rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-40 shrink-0"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <div class="flex items-center gap-3 text-[10px] font-black tracking-widest uppercase">
+                        <button @click="lang = 'zh'; mobileMenuOpen = false" :class="lang === 'zh' ? 'text-prestige-gold' : 'text-prestige-ink/50'" class="hover:text-prestige-gold transition-colors">CN</button>
+                        <span class="opacity-20 text-[8px]">/</span>
+                        <button @click="lang = 'en'; mobileMenuOpen = false" :class="lang === 'en' ? 'text-prestige-gold' : 'text-prestige-ink/50'" class="hover:text-prestige-gold transition-colors">ENG</button>
+                        <span class="opacity-20 text-[8px]">/</span>
+                        <button @click="lang = 'da'; mobileMenuOpen = false" :class="lang === 'da' ? 'text-prestige-gold' : 'text-prestige-ink/50'" class="hover:text-prestige-gold transition-colors">DA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center overflow-hidden bg-[#0A0A0A]">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 scale-105 animate-pulse-slow">
+            <div class="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+            <div class="max-w-3xl">
+                <h1 class="text-6xl md:text-8xl lg:text-9xl text-white font-serif leading-[0.9] tracking-tight mb-8">
+                    <span x-text="t('传承美声', 'The Art of', 'Kunsten af')"></span> <br>
+                    <span class="serif-italic text-prestige-gold" x-text="t('艺术精髓', 'Bel Canto', 'Bel Canto')"></span>
+                </h1>
+                <p class="text-lg md:text-xl text-white/70 font-light max-w-xl mb-10 leading-relaxed" 
+                   x-text="t('连接欧洲音乐传承与中国艺术热诚。专注于专业歌剧培训、大师班及国际文化交流。', 'Bridging European musical heritage with Chinese artistic passion. Specialized in professional operatic training, masterclasses, and international cultural exchange.', 'Brobygning mellem europæisk musikarv og kinesisk kunstnerisk passion. Specialiseret i professionel operatræning, masterclasses og international kulturel udveksling.')"></p>
+                <div class="flex flex-wrap gap-5">
+                    <button @click="document.getElementById('services').scrollIntoView({ behavior: 'smooth' })" class="px-8 py-4 bg-prestige-gold text-prestige-ink font-bold text-sm tracking-widest uppercase hover:bg-white transition-all flex items-center gap-3">
+                        <span x-text="t('探索业务', 'Explore Our Services', 'Udforsk vores tjenester')"></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </button>
+                    <button @click="document.getElementById('team').scrollIntoView({ behavior: 'smooth' })" class="px-8 py-4 border border-white/30 text-white font-bold text-sm tracking-widest uppercase hover:bg-white/10 transition-all">
+                        <span x-text="t('核心团队', 'Our Team', 'Vores team')"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 text-white/20">
+            <span class="text-[10px] uppercase font-bold tracking-[0.5em]">Scroll</span>
+            <div class="w-[1px] h-20 bg-gradient-to-b from-white/20 to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-prestige-cream relative overflow-hidden">
+        <div class="absolute top-0 right-0 p-20 opacity-[0.03] select-none pointer-events-none">
+            <h2 class="text-[200px] font-serif serif-italic leading-none">Arts</h2>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-prestige-gold font-bold tracking-[0.3em] uppercase text-xs mb-4 block" x-text="t('业务领域', 'Expertise & Services', 'Ekspertise og tjenester')"></span>
+                    <h2 class="text-5xl md:text-6xl font-serif text-prestige-ink" x-text="t('核心业务', 'Our Services', 'Vores tjenester')"></h2>
+                </div>
+                <p class="text-prestige-ink/50 max-w-sm text-sm" x-text="t('我们为美声教育与国际文化交流提供全方位解决方案，量身定制专业化路径。', 'We offer holistic solutions for vocal education and international cultural exchange, tailored for both enthusiasts and professionals.', 'Vi tilbyder helhedsorienterede løsninger til sangundervisning og international kulturel udveksling, skræddersyet til både entusiaster og professionelle.')"></p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <template x-for="service in [
+                    { title: '音乐培训', titleEn: 'Music Training', titleDa: 'Musiktræning', description: '专业美声唱法辅导，提供线上与线下灵活教学，涵盖发声、技巧及曲目诠释。', descriptionEn: 'Professional Bel Canto coaching with online and offline options, covering vocal techniques and repertoire.', descriptionDa: 'Professionel Bel Canto-coaching med online- og offline-muligheder, der dækker sangteknikker og repertoire.', icon: 'music', img: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop' },
+                    { title: '音乐大师班', titleEn: 'Masterclasses', titleDa: 'Masterclasses', description: '对话国际名师，在高强度的艺术交流中实现突破。', descriptionEn: 'Learn from international masters through intensive artistic exchange.', descriptionDa: 'Lær fra internationale mestre gennem intensiv kunstnerisk udveksling.', icon: 'book', img: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?q=80&w=2070&auto=format&fit=crop' },
+                    { title: '音乐会与交流', titleEn: 'Concerts & Exchange', titleDa: 'Koncerter og udveksling', description: '策划中欧高水准音乐会，搭建跨国艺术合作桥梁。', descriptionEn: 'Curating world-class concerts and bridging Sino-European artistic cooperation.', descriptionDa: 'Kuratering af koncerter i verdensklasse og brobygning af kinesisk-europæisk kunstnerisk samarbejde.', icon: 'users', img: 'https://i.postimg.cc/7LCZM8LN/wei-xin-tu-pian-20251114232034.jpg' },
+                    { title: '音乐游学访问', titleEn: 'Music Study Tours', titleDa: 'Musikstudieture', description: '深度走访欧洲知名剧院与学院，感悟艺术起源。', descriptionEn: 'Immersive tours of legendary European theaters and conservatories.', descriptionDa: 'Fordybende ture til legendariske europæiske teatre og konservatorier.', icon: 'plane', img: 'https://i.postimg.cc/1XFFWV5z/2834e9bea8d43bbf2850294f063b1363.jpg' },
+                    { title: '艺术研习营', titleEn: 'Art Study Camps', titleDa: 'Kunststudielejre', description: '为音乐家和音乐爱好者设计的艺术研习营，涉及全年度灵活开展，深化艺术造诣。', descriptionEn: 'Artistic camps designed for musicians and music lovers, available year-round to deepen artistic expertise.', descriptionDa: 'Kunstneriske lejre designet til musikere og musikelskere, tilgængelige hele året rundt for at uddybe kunstnerisk ekspertise.', icon: 'trees', img: 'https://i.postimg.cc/25j4z525/c3c51962ceebd78fb248e620192cf6c6.jpg' }
+                ]">
+                    <div class="group cursor-pointer">
+                        <div class="relative aspect-[16/10] overflow-hidden mb-6 rounded-sm">
+                            <img :src="service.img" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-prestige-ink/20 group-hover:bg-prestige-ink/40 transition-all"></div>
+                        </div>
+                        <h3 class="text-2xl font-serif mb-2 group-hover:text-prestige-gold transition-colors" x-text="t(service.title, service.titleEn, service.titleDa)"></h3>
+                        <p class="text-prestige-ink/60 text-sm font-light leading-relaxed mb-4" x-text="t(service.description, service.descriptionEn, service.descriptionDa)"></p>
+                        <div class="h-[1px] w-0 bg-prestige-gold group-hover:w-full transition-all duration-500"></div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-24 bg-prestige-paper">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Core Team -->
+            <div class="mb-24">
+                <h3 class="text-prestige-gold font-serif text-3xl md:text-4xl mb-16 block border-l-4 border-prestige-gold pl-6 whitespace-nowrap" x-text="t('艺术总监', 'Artistic Directors', 'Kunstneriske ledere')"></h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 max-w-4xl gap-12">
+                    <template x-for="member in [
+                        { name: '徐晨', nameEn: 'Xu Chen', role: '执行艺术总监 & 首席男高音', roleEn: 'Executive Artistic Director & Principal Tenor', description: '活跃于国际舞台的美声男高音，致力于将正统欧派美声带入中国。', descriptionEn: 'A lyric tenor active on international stages, dedicated to bringing authentic European Bel Canto to China.', img: 'https://i.postimg.cc/MpCqJsxW/wei-xin-tu-pian-20260516234424.jpg', link: 'https://www.chenxutenor.com/' }
+                    ]">
+                        <div class="group">
+                            <div class="aspect-[4/5] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 mb-6 rounded-sm relative">
+                                <img :src="member.img" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 border border-prestige-ink/5 group-hover:border-prestige-gold/30 transition-colors"></div>
+                            </div>
+                            <h3 class="font-serif text-2xl mb-1 group-hover:text-prestige-gold transition-colors" x-text="t(member.name, member.nameEn)"></h3>
+                            <p class="text-[10px] uppercase font-bold tracking-widest text-prestige-gold mb-4" x-text="t(member.role, member.roleEn)"></p>
+                            <p class="text-prestige-ink/60 text-sm font-light leading-relaxed mb-6" x-text="t(member.description, member.descriptionEn)"></p>
+                            <template x-if="member.link">
+                                <a :href="member.link" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-prestige-gold pb-1" x-text="t('个人简介', 'View Profile', 'Se profil')"></a>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Advisors -->
+            <div class="mb-24">
+                <h3 class="text-prestige-gold font-serif text-3xl md:text-4xl mb-16 block border-l-4 border-prestige-gold pl-6 whitespace-nowrap" x-text="t('国际艺术家顾问', 'International Artistic Advisors', 'Internationale kunstneriske rådgivere')"></h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 max-w-4xl gap-12">
+                    <template x-for="member in [
+                        { name: 'Salvatore Fisichella', nameEn: 'Salvatore Fisichella', role: '传奇男高音 & 国际艺术家顾问', roleEn: 'Legendary Tenor & International Artistic Advisor', description: '当代贝尔坎托歌唱艺术的杰出代表，被誉为“最卓越的贝里尼歌唱家”。', descriptionEn: 'A pre-eminent representative of contemporary Bel Canto, described as the \'most exceptional Bellini singer\'.', img: 'https://i.postimg.cc/26mV79L6/Salvatore-Fisichella-close-up.jpg' },
+                        { name: 'Francisco Araiza', nameEn: 'Francisco Araiza', role: '世界著名男高音 & 国际艺术家顾问', roleEn: 'World-Renowned Tenor & International Artistic Advisor', description: '莫扎特与罗西尼作品的最佳诠释者之一，当代最具影响力的抒情男高音歌唱家。', descriptionEn: 'One of the best interpreters of Mozart and Rossini, and one of the most influential lyric tenors of our time.', img: 'https://i.postimg.cc/rpWK22LV/1900x1900-000000-80-0-0.jpg' },
+                        { name: 'Eva Hess Thaysen', nameEn: 'Eva Hess Thaysen', role: '丹麦皇家音乐学院教授 & 国际艺术家顾问', roleEn: 'Professor at RDAM & International Artistic Advisor', description: '著名丹麦女高音歌唱家，丹麦皇家音乐学院声乐系教授，深耕声乐教育领域，拥有丰富的国际舞台演出经验。', descriptionEn: 'Renowned Danish soprano and Professor at the Royal Danish Academy of Music, specializing in vocal pedagogy with extensive international experience.', img: 'https://i.postimg.cc/5t6vTRsF/wei-xin-tu-pian-20260516230128.png' },
+                        { name: 'Anne Margrethe Dahl', nameEn: 'Anne Margrethe Dahl', role: '丹麦皇家音乐学院教授 & 国际艺术家顾问', roleEn: 'Professor at RDAM & International Artistic Advisor', description: '著名丹麦女高音歌唱家，曾任丹麦皇家歌剧学院院长，现任 Karlstad 大学 Ingesund 音乐学院教授。', descriptionEn: 'Renowned Danish soprano, former Head of the Royal Danish Opera Academy, currently Professor at Ingesund School of Music, Karlstad University.', img: 'https://i.postimg.cc/5tP0dBPH/anne-margrethe-dahl-26-1.jpg' }
+                    ]">
+                        <div class="group">
+                            <div class="aspect-[4/5] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 mb-6 rounded-sm relative">
+                                <img :src="member.img" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 border border-prestige-ink/5 group-hover:border-prestige-gold/30 transition-colors"></div>
+                            </div>
+                            <h3 class="font-serif text-2xl mb-1 group-hover:text-prestige-gold transition-colors" x-text="t(member.name, member.nameEn)"></h3>
+                            <p class="text-[10px] uppercase font-bold tracking-widest text-prestige-gold mb-4" x-text="t(member.role, member.roleEn)"></p>
+                            <p class="text-prestige-ink/60 text-sm font-light leading-relaxed mb-6" x-text="t(member.description, member.descriptionEn)"></p>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Administrative -->
+            <div class="mb-24 last:mb-0">
+                <h3 class="text-prestige-gold font-serif text-3xl md:text-4xl mb-16 block border-l-4 border-prestige-gold pl-6 whitespace-nowrap" x-text="t('行政策划', 'Administrative Planning', 'Administrativ planlægning')"></h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 max-w-5xl gap-12">
+                    <template x-for="member in [
+                        { name: '沈忱', nameEn: 'Shen Chen', role: '执行策划经理', roleEn: 'Executive Planning Manager', description: '负责中心整体艺术项目的统筹规划与执行管理。', descriptionEn: 'Responsible for the overall planning and execution management of the center\'s artistic projects.', img: 'https://i.postimg.cc/pT4Ly2MK/wei-xin-tu-pian-20260517001747.png' },
+                        { name: '冯枫', nameEn: 'Feng Feng', role: '市场营销经理', roleEn: 'Marketing Manager', description: '致力于品牌推广、媒体合作及市场战略部署。', descriptionEn: 'Dedicated to brand promotion, media cooperation, and strategic market deployment.', img: 'https://i.postimg.cc/jSgvD92c/wei-xin-tu-pian-20260517000518.jpg' },
+                        { name: 'Bogdan Nicola', nameEn: 'Bogdan Nicola', role: '钢琴艺术指导', roleEn: 'Piano Artistic Coach', description: '具有深厚造诣的钢琴艺术家，长期致力于声乐伴奏与艺术指导工作。', descriptionEn: 'A highly accomplished piano artist, long dedicated to vocal accompaniment and artistic coaching.', img: 'https://i.postimg.cc/RhRzcXxr/wei-xin-tu-pian-20260516223745.png' }
+                    ]">
+                        <div class="group">
+                            <div class="aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 mb-6 rounded-sm relative">
+                                <img :src="member.img" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 object-top">
+                                <div class="absolute inset-0 border border-prestige-ink/5 group-hover:border-prestige-gold/30 transition-colors"></div>
+                            </div>
+                            <h3 class="font-serif text-xl mb-1 group-hover:text-prestige-gold transition-colors" x-text="t(member.name, member.nameEn)"></h3>
+                            <p class="text-[10px] uppercase font-bold tracking-widest text-prestige-gold mb-4" x-text="t(member.role, member.roleEn)"></p>
+                            <p class="text-prestige-ink/60 text-xs font-light leading-relaxed mb-6" x-text="t(member.description, member.descriptionEn)"></p>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Section -->
+    <section id="media" class="py-24 bg-[#0F0F0F] text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-prestige-gold font-bold tracking-[0.3em] uppercase text-xs mb-4 block" x-text="t('影音资料', 'Archive & Media', 'Arkiv og medier')"></span>
+                    <h2 class="text-5xl md:text-6xl font-serif" x-text="t('影音库', 'Media Gallery', 'Mediegalleri')"></h2>
+                </div>
+                <p class="text-white/40 max-w-sm text-sm font-light leading-relaxed" x-text="t('甄选多场演出精彩片段、艺术教学工作坊以及国际文化交流实况。', 'A curated collection of performance moments, educational workshops, and international artistic exchanges.', 'En kurateret samling af optrædelsesmomenter, pædagogiske workshops og internationale kunstneriske udvekslinger.')"></p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <template x-for="item in [
+                    'https://i.postimg.cc/bJrbXFL9/wei-xin-tu-pian-20251114232025.jpg',
+                    'https://i.postimg.cc/wjk0gZ5r/65A0827-2.jpg',
+                    'https://i.postimg.cc/zvC8BqGT/wei-xin-tu-pian-20260516231556.jpg',
+                    'https://i.postimg.cc/SRv7nb18/orchestra.jpg',
+                    'https://i.postimg.cc/MK7hfsbm/ee32b1c303f038bb01ac45ece2df3f9f.jpg',
+                    'https://i.postimg.cc/Ssb69GGt/wei-xin-tu-pian-20260516231802.png'
+                ]">
+                    <div class="group relative aspect-video overflow-hidden cursor-pointer" @click="selectedImage = item">
+                        <img :src="item" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="opacity-0 group-hover:opacity-100 transition-opacity">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/50"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="mt-16 flex justify-center">
+                <button class="group flex items-center gap-4 text-xs font-bold uppercase tracking-[0.4em] hover:text-prestige-gold transition-colors">
+                    <span x-text="t('进入全量档案库', 'Explore More Archive', 'Udforsk mere arkiv')"></span>
+                    <div class="w-12 h-[1px] bg-white group-hover:bg-prestige-gold group-hover:w-20 transition-all duration-500"></div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div x-show="selectedImage" @keydown.window.escape="selectedImage = null" class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-pointer" @click="selectedImage = null" x-cloak>
+            <button class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-[110] p-2 bg-white/10 rounded-full" @click="selectedImage = null">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+            </button>
+            <img :src="selectedImage" class="max-w-full max-h-[85vh] object-contain shadow-2xl cursor-default" @click.stop="">
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-24 bg-prestige-paper">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col mb-16">
+                <span class="text-prestige-gold font-bold tracking-[0.3em] uppercase text-xs mb-4 block" x-text="t('活动动态', 'Schedule & Events', 'Program og begivenheder')"></span>
+                <h2 class="text-5xl md:text-6xl font-serif text-prestige-ink mb-6" x-text="t('最新动态', 'Upcoming Events', 'Kommende begivenheder')"></h2>
+                <div class="w-24 h-[1px] bg-prestige-gold"></div>
+            </div>
+            <div class="space-y-12">
+                <template x-for="event in [
+                    { tag: 'Report', tagZh: '媒体报道', title: '“金嗓子”徐晨将亮相轻歌剧院“Amore musica”音乐会', titleEn: '\'Golden Voice\' Xu Chen to Perform in Operetta Theatre\'s \'Amore musica\' Concerts', subtitle: 'European Media Highlights Xu Chen\'s Upcoming Performance in Latvia', subtitleZh: '欧洲媒体专题报道：徐晨受邀参加拉脱维亚 Operetes teātris 音乐会', date: 'October 2024', dateZh: '2024年10月', img: 'https://i.postimg.cc/28DtYQRY/wei-xin-tu-pian-20260516231249.png', link: 'https://sejas.tvnet.lv/8382045/zelta-balss-ipasnieks-cens-sjujs-uzstasies-operetes-teatra-koncertos-amore-musica' },
+                    { tag: 'Masterclass', tagZh: '大师班', title: '2024 夏季美声大师班', titleEn: '2024 Summer Bel Canto Masterclass', subtitle: 'Summer Bel Canto Masterclass in Malta', subtitleZh: '马耳他夏季贝尔坎托大师班', date: 'July 2024', dateZh: '2024年7月', img: 'https://i.postimg.cc/ydNVvMnz/wei-xin-tu-pian-20260516232416.jpg', link: 'https://timesofmalta.com/article/opera-star-jose-cura-to-deliver-masterclasses-in-malta.895654' },
+                    { tag: 'Tour', tagZh: '艺术游学', title: '欧洲顶级剧院艺术游览', titleEn: 'European Opera House Arts Tour', subtitle: 'Elite Theater & Conservatory Tour', subtitleZh: '顶级剧院与音乐学院深度游览', date: '2026', dateZh: '2026年', img: 'https://i.postimg.cc/pdLT65X4/55810245ff1010e4e8bd95823dc19b50.jpg' }
+                ]">
+                    <div class="flex flex-col lg:flex-row gap-10 group cursor-pointer" @click="if(event.link) window.open(event.link, '_blank')">
+                        <div class="lg:w-1/3 aspect-video lg:aspect-[4/3] overflow-hidden relative">
+                            <img :src="event.img" class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+                            <div class="absolute top-4 left-4 px-3 py-1 bg-white text-prestige-ink text-[10px] font-bold uppercase tracking-widest whitespace-nowrap" x-text="t(event.tagZh, event.tag)"></div>
+                        </div>
+                        <div class="lg:w-2/3 flex flex-col justify-center py-4 border-b border-prestige-ink/10 group-hover:border-prestige-gold transition-colors">
+                            <div class="flex items-center gap-3 text-prestige-gold mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                <span class="text-xs font-bold uppercase tracking-[0.2em]" x-text="t(event.dateZh, event.date)"></span>
+                            </div>
+                            <h3 class="text-3xl md:text-4xl font-serif mb-2 group-hover:translate-x-2 transition-transform" x-text="t(event.title, event.titleEn)"></h3>
+                            <p class="text-prestige-ink/50 serif-italic text-lg md:text-xl group-hover:translate-x-2 transition-transform delay-75" x-text="t(event.subtitleZh, event.subtitle)"></p>
+                            <div class="mt-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span x-text="t(event.link ? '阅读全文' : '了解更多', event.link ? 'Read Full Article' : 'Learn More', event.link ? 'Læs hele artiklen' : 'Lær mere')"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="mt-20 text-center">
+                <button class="px-10 py-5 border-[2px] border-prestige-ink text-prestige-ink font-bold text-xs tracking-[0.3em] uppercase hover:bg-prestige-ink hover:text-white transition-all">
+                    <span x-text="t('浏览所有项目', 'View All Programs', 'Se alle programmer')"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-prestige-ink text-white py-24 pb-12 border-t-4 border-prestige-gold">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
+                <div class="lg:col-span-5">
+                    <div class="flex items-center gap-1 mb-8">
+                        <div class="relative flex items-center">
+                            <span class="text-8xl font-serif text-prestige-gold leading-none">O</span>
+                            <div class="flex flex-col ml-1 mt-1 text-white">
+                                <div class="flex items-baseline gap-2">
+                                    <h1 class="text-3xl md:text-4xl font-serif tracking-tight leading-none">rdin <span class="ml-1">M</span>edia</h1>
+                                    <template x-if="lang === 'zh'">
+                                        <span class="text-2xl md:text-3xl font-sans font-black tracking-tighter uppercase">奧丁傳媒</span>
+                                    </template>
+                                </div>
+                                <p class="text-[9px] uppercase tracking-[0.4em] font-sans opacity-40 mt-1 leading-none font-bold">Bel Canto Excellence</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-white/50 font-light leading-relaxed max-w-md mb-8" 
+                       x-text="t('奧丁傳媒是一家专注于高端美声艺术教育与中欧文化交流的平台，致力于传承正统欧派美声精髓。', 'Ordin Media is a platform dedicated to high-end Bel Canto art education and Sino-European cultural exchange, committed to inheriting the essence of authentic European vocal traditions.', 'Ordin Media er en platform dedikeret til avanceret Bel Canto-kunstuddannelse og kinesisk-europæisk kulturel udveksling, forpligtet til at arve essensen af autentiske europæiske sangtraditioner.')"></p>
+                    <div class="flex gap-4">
+                        <template x-for="i in [1,2,3,4]">
+                            <a href="#" class="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-prestige-gold hover:text-prestige-ink hover:border-prestige-gold transition-all">
+                                <svg x-show="i==1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                                <svg x-show="i==2" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                                <svg x-show="i==3" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                <svg x-show="i==4" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                            </a>
+                        </template>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3">
+                    <h4 class="text-prestige-gold uppercase text-xs font-bold tracking-[0.2em] mb-8" x-text="t('导航', 'Navigation', 'Navigation')"></h4>
+                    <ul class="space-y-4 text-white/60 font-light">
+                        <li><a href="#home" class="hover:text-white transition-colors" x-text="t('首页', 'Home', 'Hjem')"></a></li>
+                        <li><a href="#team" class="hover:text-white transition-colors" x-text="t('执行艺术总监 徐晨', 'Artistic Director Xu Chen', 'Kunstnerisk leder Xu Chen')"></a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors" x-text="t('业务', 'Services', 'Tjenester')"></a></li>
+                        <li><a href="#events" class="hover:text-white transition-colors" x-text="t('活动', 'Events', 'Begivenheder')"></a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-4">
+                    <h4 class="text-prestige-gold uppercase text-xs font-bold tracking-[0.2em] mb-8" x-text="t('联系方式', 'Get In Touch', 'Kontakt os')"></h4>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-prestige-gold mt-1"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <div>
+                                <p class="text-xs uppercase font-bold opacity-40 mb-1" x-text="t('电子邮箱', 'Email', 'E-mail')"></p>
+                                <p class="text-white/80">info@ordinmedia.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-prestige-gold mt-1"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <div>
+                                <p class="text-xs uppercase font-bold opacity-40 mb-1" x-text="t('联系电话', 'Phone', 'Telefon')"></p>
+                                <p class="text-white/80">+86 158 5189 9055</p>
+                                <p class="text-white/80">+45 52 81 89 07</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-prestige-gold mt-1"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <div>
+                                <p class="text-xs uppercase font-bold opacity-40 mb-1" x-text="t('办公地点', 'Office', 'Kontor')"></p>
+                                <p class="text-white/80">Etta Camerons vej. 13 st.th</p>
+                                <p class="text-white/80">2450 Copenhagen, Denmark</p>
+                                <p class="text-white/40 text-[10px] mt-2 font-bold tracking-widest uppercase">CVR: 46055152</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+                <p class="text-[10px] uppercase tracking-widest text-white/30">
+                    © 2025 <span x-text="t('奧丁傳媒', 'Ordin Media')"></span>. All Rights Reserved.
+                </p>
+                <div class="flex gap-8 text-[10px] uppercase tracking-widest text-white/30">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
