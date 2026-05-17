@@ -40,9 +40,89 @@
 </head>
 <body x-data="{ 
     lang: 'zh', 
+    page: 'home',
     isScrolled: false, 
     mobileMenuOpen: false,
     selectedImage: null,
+    selectedMember: null,
+    memberProfiles: {
+        'xu-chen': {
+            name: '徐晨', nameEn: 'Xu Chen', nameDa: 'Xu Chen',
+            role: '执行艺术总监 & 首席男高音', roleEn: 'Executive Artistic Director & Principal Tenor', roleDa: 'Administrerende kunstnerisk leder & Ledende tenor',
+            bioZh: '徐晨，活跃于国际舞台的中国青年男高音歌唱家，奧丁傳媒执行艺术总监。他以其卓越的声音控制力、极具感染力的舞台表现力以及对意大利贝尔坎托（Bel Canto）传统的深刻理解而著称。\n\n徐晨拥有上海音乐学院硕士学位，并于丹麦皇家音乐学院获得声乐最高文凭（独唱家学位）。他曾师从多位世界级歌唱家，包括传奇男高音 Salvatore Fisichella 和 Francisco Araiza。\n\n他的职业生涯足迹遍布全球重要舞台。2016年，他在上海东方艺术中心《费加罗的婚礼》中饰演 Basilio 开启首秀；2017年，他在北京国家大剧院《玫瑰骑士》中饰演意大利歌手；2019年，他分别在柏林德尔菲剧院《魔笛》饰演 Tamino，以及在意大利波尔扎诺市立剧院《弄臣》中饰演公爵；2022年，他在阿尔巴尼亚国家歌剧院《罗密欧与朱丽叶》中担纲主角罗密欧。此外，他还多次作为独唱家参演《威尔第安魂曲》、《韩德尔弥赛亚》及《贝多芬第九交响曲》。\n\n在声乐比赛中，他先后荣获第十届中国音乐金钟奖分赛区金奖、第五十一届图卢兹国际声乐比赛决赛奖、2017年维也纳国际音乐比赛一等奖、2018年维也纳新年音乐会比赛一等奖、2021年罗马“Grand Prize Virtuoso”国际音乐比赛一等奖，以及2025年 Marina Zirdziņa 国际声乐比赛一等奖。\n\n徐晨曾与马耳他爱乐乐团、柏林城市交响乐团、维也纳青年交响乐团、上海爱乐乐团、匈牙利国家交响乐团、阿尔巴尼亚国家交响乐团及拉脱维亚国家交响乐团等世界顶尖乐团合作演出。除了活跃在舞台，他还致力于声乐教育，旨在为中欧音乐人才搭建交流的桥梁。',
+            bioEn: 'Xu Chen is a young Chinese tenor active on international stages and the Executive Artistic Director of Ordin Media. He is known for his exceptional vocal control, charismatic stage presence, and profound understanding of the Italian Bel Canto tradition. \n\nHe holds a master\'s degree from the Shanghai Conservatory of Music and a soloist degree (top degree) from the Royal Danish Academy of Music. He studied under world-renowned singers, including legendary tenors Salvatore Fisichella and Francisco Araiza. \n\nHis operatic journey includes notable debuts at major venues: Basilio in "Le Nozze di Figaro" (Shanghai Oriental Art Center, 2016), the Italian singer in "Der Rosenkavalier" (National Centre for the Performing Arts, Beijing, 2017), Tamino in "Die Zauberflöte" (Delphi Theatre, Berlin, 2019), Duca in "Rigoletto" (Teatro Comunale di Bolzano, 2019), and Romeo in "Roméo et Juliette" (Albanian National Opera House, 2022). He has also performed as a soloist in masterpieces such as Verdi\'s "Requiem", Handel\'s "Messiah", and Beethoven\'s "Symphony No. 9". \n\nXu Chen has received numerous prestigious awards, including the Gold Award at the 10th China Golden Bell Award (regional), Finalist Award at the 51st Toulouse International Vocal Competition, First Prize at the 2017 Vienna International Music Competition, First Prize at the 2018 Vienna New Year Concert Competition, First Prize at the 2021 Rome "Grand Prize Virtuoso", and First Prize at the 2025 Marina Zirdziņa International Vocal Competition.\n\nHe has collaborated with world-class orchestras such as the Malta Philharmonic, Berlin City Symphony, Vienna Youth Symphony, Shanghai Philharmonic, Hungarian National Symphony, and Latvian National Symphony. Beyond performing, he is committed to vocal education and building cultural bridges between China and Europe.',
+            bioDa: 'Xu Chen er en ung kinesisk tenor aktiv på internationale scener og administrerende kunstnerisk leder af Ordin Media. Han er kendt for sin enestående stemmekontrol, karismatiske scenetilstedeværelse og dybe forståelse af den italienske Bel Canto-tradition. \n\nHan er uddannet med en kandidatgrad fra Shanghai Musikkonservatorium og har modtaget solistklassen (højeste grad) fra Det Kongelige Danske Musikkonservatorium. Han har studeret under verdenskendte sangere, herunder de legendariske tenorer Salvatore Fisichella og Francisco Araiza. \n\nHans operatiske rejse inkluderer bemærkelsesværdige debuter: Basilio i "Le Nozze di Figaro" (Shanghai Oriental Art Center, 2016), den italienske sanger i "Der Rosenkavalier" (Beijings Nationalteater, 2017), Tamino i "Tryllefløjten" (Delphi Theatre, Berlin, 2019), Duca i "Rigoletto" (Teatro Comunale di Bolzano, 2019) og Romeo i "Roméo et Juliette" (Albaniens Nationalopera, 2022). Han har også optrådt som solist i værker som Verdis "Requiem", Händels "Messias" og Beethovens "9. Symfoni". \n\nXu Chen har modtaget adskillige priser, herunder guld ved den 10. China Golden Bell Award (regionalt), finalist ved den 51. Toulouse International Vocal Competition, førstepræmie ved 2017 Vienna International Music Competition, førstepræmie ved 2018 Vienna New Year Concert Competition, førstepræmie ved 2021 Rome "Grand Prize Virtuoso" og førstepræmie ved 2025 Marina Zirdziņa International Vocal Competition. \n\nHan har samarbejdet med orkestre som Malta Philharmonic, Berlin City Symphony, Vienna Youth Symphony, Shanghai Philharmonic, Hungarian National Symphony og Latvian National Symphony. Han er også dedikeret til sangundervisning og til at bygge broer mellem Kina og Europa.',
+            img: 'https://i.postimg.cc/MpCqJsxW/wei-xin-tu-pian-20260516234424.jpg',
+            taglineZh: '美声歌唱家 • 艺术总监', taglineEn: 'Bel Canto Specialist • Artistic Planner', taglineDa: 'Bel Canto Specialist • Kunstnerisk planlægger',
+            link: 'https://www.chenxutenor.com/',
+            extraImages: [
+                'https://i.postimg.cc/dtz7BBCK/2017nian-wei-ye-na-Virtuoso-guo-ji-yin-le-bi-sai-huo-jiang-zheng-shu.png',
+                'https://i.postimg.cc/5NZH33CD/wei-xin-tu-pian-20251208210912.jpg',
+                'https://i.postimg.cc/02L6ffwW/wei-xin-tu-pian-20251208210939.jpg',
+                'https://i.postimg.cc/L6rqTT1c/wei-xin-tu-pian-20251208211038.jpg',
+                'https://i.postimg.cc/W4Vx0Bbs/wei-xin-tu-pian-20251208211017.jpg',
+                'https://i.postimg.cc/4dS82qZp/wei-xin-tu-pian-20251207225531.jpg',
+                'https://i.postimg.cc/Sx4pG2gk/wei-xin-tu-pian-20251207225601.jpg',
+                'https://i.postimg.cc/Nf13LGBZ/wei-xin-tu-pian-20251207225736.jpg',
+                'https://i.postimg.cc/T3gKHDjD/wei-xin-tu-pian-20251208224145.jpg',
+                'https://i.postimg.cc/d09LJcSH/wei-xin-tu-pian-20251208224252.png',
+                'https://i.postimg.cc/s2zMFgKw/wei-xin-tu-pian-20251208225007.jpg',
+                'https://i.postimg.cc/HsCKGGXy/wei-xin-tu-pian-20251208211026.jpg',
+                'https://i.postimg.cc/vTvvFKwj/wei-xin-tu-pian-20251208235144.png',
+                'https://i.postimg.cc/rwHNkW3g/wei-xin-tu-pian-20251208235159.jpg',
+                'https://i.postimg.cc/7LCZM8LN/wei-xin-tu-pian-20251114232034.jpg',
+                'https://i.postimg.cc/T3bpKDhC/wei-xin-tu-pian-20251208214606.png',
+                'https://i.postimg.cc/28M1jwjQ/wei-xin-tu-pian-20251208224202.jpg',
+                'https://i.postimg.cc/L8P3mhSP/wei-xin-tu-pian-20260517124730.png',
+                'https://i.postimg.cc/pXwKcxFw/wei-xin-tu-pian-20251208000323.jpg',
+                'https://i.postimg.cc/nzKHx4Sb/wei-xin-tu-pian-20251114231600.png',
+                'https://i.postimg.cc/g0TM0Q5b/wei-biao-ti-1.jpg',
+                'https://i.postimg.cc/zXw8RFqN/wei-xin-tu-pian-20251208210850.jpg',
+                'https://i.postimg.cc/63VYhqq2/wei-xin-tu-pian-20260120222509.jpg',
+                'https://i.postimg.cc/RCRg6W28/wei-xin-tu-pian-20251208211032.jpg'
+            ]
+        },
+        'salvatore-fisichella': {
+            name: 'Salvatore Fisichella', nameEn: 'Salvatore Fisichella', nameDa: 'Salvatore Fisichella',
+            role: '传奇男高音 & 国际艺术家顾问', roleEn: 'Legendary Tenor & International Artistic Advisor', roleDa: 'Legendarisk tenor og international kunstnerisk rådgiver',
+            taglineZh: '当代贝里尼歌唱作品的最佳诠释者', taglineEn: 'The Ultimate Interpreter of Bellini\'s Repertoire', taglineDa: 'Den ultimative fortolker af Bellinis repertoire',
+            bioZh: '萨尔瓦托雷·菲西凯拉（Salvatore Fisichella）是当代最具代表性的意大利美声男高音之一。他以极其明亮且极具穿透力的嗓音著称，被广泛认为是演绎贝里尼（Bellini）歌剧作品的最佳男高音。\n\n在数十年的艺术生涯中，他与卡拉扬、穆蒂等指挥大师合作，活跃于斯卡拉歌剧院、大都会歌剧院等世界顶尖舞台。他的演唱风格继承了正统的意大利美声传统，不仅在技巧上达到了顶峰，在情感的细腻表达上也为后辈树立了标杆。',
+            bioEn: 'Salvatore Fisichella is one of the most representative Italian Bel Canto tenors of our time. Renowned for his exceptionally bright and penetrating voice, he is widely considered the ultimate interpreter of Bellini\'s operatic works.\n\nThroughout his decades-long career, he collaborated with legendary conductors like Karajan and Muti, performing at the world\'s most prestigious venues, including La Scala and the Metropolitan Opera. His singing style inherits the authentic Italian Bel Canto tradition, reaching technological peaks while setting benchmarks for emotional expression.',
+            bioDa: 'Salvatore Fisichella er en af de mest repræsentative italienske Bel Canto-tenorer i vor tid. Han er kendt for sin usædvanligt lyse og gennemtrængende stemme og betragtes af mange som den ultimative fortolker af Bellinis operaværker.\n\nGennem sin årtier lange karriere har han samarbejdet med legendariske dirigenter som Karajan og Muti og optrådt på verdens mest prestigefyldte scener, herunder La Scala og Metropolitan Opera. Hans sangstil er en arv fra den autentiske italienske Bel Canto-tradition, hvor han når tekniske højder og sætter standarder for emotionelt udtryk.',
+            img: 'https://i.postimg.cc/26mV79L6/Salvatore-Fisichella-close-up.jpg',
+            link: 'https://en.wikipedia.org/wiki/Salvatore_Fisichella'
+        },
+        'francisco-araiza': {
+            name: 'Francisco Araiza', nameEn: 'Francisco Araiza', nameDa: 'Francisco Araiza',
+            role: '世界著名男高音 & 国际艺术家顾问', roleEn: 'World-Renowned Tenor & International Artistic Advisor', roleDa: 'Verdensberømt tenor og international kunstnerisk rådgiver',
+            taglineZh: '莫扎特与罗西尼作品的最佳诠释者', taglineEn: 'Master of Mozart and Rossini Repertoire', taglineDa: 'Mester i Mozart og Rossini repertoire',
+            bioZh: '弗朗西斯科·阿莱扎（Francisco Araiza）是享誉世界的抒情男高音。他在莫扎特和罗西尼作品领域的造诣极深，被认为是当代最具影响力的歌唱家之一。\n\n他的嗓音兼具力量与灵活性，不仅在古典剧目中表现出色，并在德语艺术歌曲、法国以及后期浪漫主义剧目中也留下了经典的演绎。他曾长期担任苏黎世歌剧院等顶尖剧院的首席男高音，并多次在格莱美等国际奖项中获得认可。',
+            bioEn: 'Francisco Araiza is a world-renowned lyric tenor. With profound expertise in the works of Mozart and Rossini, he is considered one of the most influential singers of the contemporary era.\n\nHis voice combines power with agility, excelling not only in classical repertoire but also producing definitive interpretations of German Lieder, French, and late Romantic works. He served for many years as the leading tenor at top houses like the Zurich Opera House and has been recognized with numerous international awards, including Grammys.',
+            bioDa: 'Francisco Araiza er en verdenskendt lyrisk tenor. Med sin dybe ekspertise i værker af Mozart og Rossini betragtes han som en af de mest indflydelsesrige sangere i den moderne æra.\n\nHans stemme kombinerer kraft med smidighed og udmærker sig ikke kun i det klassiske repertoire, men leverer også definerende fortolkninger af tyske Lieder, franske og senromantiske værker. Han fungerede i mange år som den ledende tenor på topteatre som Zürich Operahus og er blevet anerkendt med adskillige internationale priser, herunder Grammyer.',
+            img: 'https://i.postimg.cc/rpWK22LV/1900x1900-000000-80-0-0.jpg',
+            link: 'https://en.wikipedia.org/wiki/Francisco_Araiza'
+        },
+        'eva-hess-thaysen': {
+            name: 'Eva Hess Thaysen', nameEn: 'Eva Hess Thaysen', nameDa: 'Eva Hess Thaysen',
+            role: '丹麦皇家音乐学院教授 & 国际艺术家顾问', roleEn: 'Professor at RDAM & International Artistic Advisor', roleDa: 'Professor ved DKDM og international kunstnerisk rådgiver',
+            taglineZh: '声乐教学法专家', taglineEn: 'Expert in Vocal Pedagogy', taglineDa: 'Ekspert i vokalkpædagogik',
+            bioZh: '伊娃·赫斯·泰森（Eva Hess Thaysen）是著名的丹麦女高音歌唱家，现任丹麦皇家音乐学院（RDAM）声乐系教授。\n\n她在声乐教学法领域拥有极高的学术造诣，多年来致力于培养新一代国际声乐人才。她的演出足迹遍布欧洲，尤其在德语艺术歌曲和当代作品的诠释上享有盛誉。作为教育家，她擅长挖掘学生的潜力，帮助他们在那充满挑战的国际艺术舞台上找到个人特色。',
+            bioEn: 'Eva Hess Thaysen is a renowned Danish soprano and Professor at the Royal Danish Academy of Music (RDAM).\n\nShe possesses supreme academic expertise in vocal pedagogy and has dedicated years to training the next generation of international vocal talent. Her performances span Europe, where she is particularly celebrated for her interpretations of German Lieder and contemporary works. As an educator, she excels at unlocking student potential, helping them find their unique identity in the challenging international arts landscape.',
+            bioDa: 'Eva Hess Thaysen er en anerkendt dansk sopran og professor ved Det Kongelige Danske Musikkonservatorium (DKDM).\n\nHun besidder enestående akademisk ekspertise inden for sangpædagogik og har dedikeret mange år til at uddanne den næste generation af internationale sangtalenter. Hendes optrædener spænder over hele Europa, hvor hun er særligt kendt for sine fortolkninger af tyske Lieder og moderne værker. Som underviser er hun fremragende til at forløse elevernes potentiale og hjælpe dem med at finde deres unikke identitet i det udfordrende internationale kunstlandskab.',
+            img: 'https://i.postimg.cc/5t6vTRsF/wei-xin-tu-pian-20260516230128.png',
+            link: 'https://www.dkdm.dk/en/employee/eva-hess-thaysen'
+        },
+        'anne-margrethe-dahl': {
+            name: 'Anne Margrethe Dahl', nameEn: 'Anne Margrethe Dahl', nameDa: 'Anne Margrethe Dahl',
+            role: '丹麦皇家音乐学院教授 & 国际艺术家顾问', roleEn: 'Professor at RDAM & International Artistic Advisor', roleDa: 'Professor ved DKDM og international kunstnerisk rådgiver',
+            taglineZh: '资深歌唱家与音乐教育家', taglineEn: 'Veteran Singer & Music Educator', taglineDa: 'Erfaren sanger og musikpædagog',
+            bioZh: '安妮·玛格丽特·达尔（Anne Margrethe Dahl）是丹麦顶尖的女高音歌唱家及艺术教育家。\n\n她曾长期担任丹麦皇家歌剧学院院长，在艺术管理与人才选拔方面经验丰厚。她的舞台经验极其丰富，曾在哥本哈根、柏林、斯德哥尔摩等地的歌剧院担任主角。目前她担任多所音乐学院的客座教授，并作为评委活跃于各大国际声乐比赛。',
+            bioEn: 'Anne Margrethe Dahl is a leading Danish soprano and arts educator. \n\nShe served for many years as the Head of the Royal Danish Opera Academy, gaining extensive experience in artistic management and talent selection. Her stage experience is exceptionally rich, having performed lead roles at opera houses in Copenhagen, Berlin, and Stockholm. She is currently a visiting professor at multiple conservatories and remains active as a judge for major international vocal competitions.',
+            bioDa: 'Anne Margrethe Dahl er en førende dansk sopran og kunstunderviser. \n\nHun fungerede i mange år som forstander for Det Kongelige Danske Operaakademi og har opnået omfattende erfaring inden for kunstnerisk ledelse og talentudvælgelse. Hendes sceneerfaring er usædvanligt rig, og hun har optrådt i hovedroller på operahuse i København, Berlin og Stockholm. Hun er i øjeblikket gæsteprofessor ved flere konservatorier og er fortsat aktiv som dommer ved store internationale sangkonkurrencer.',
+            img: 'https://i.postimg.cc/5tP0dBPH/anne-margrethe-dahl-26-1.jpg',
+            link: 'https://www.kau.se/en/ingesund-school-music/about-ingesund-school-music/about-us/kontakta-oss/vara-larare/anne-margrethe'
+        }
+    },
     t(zh, en, da) {
         if (this.lang === 'da' && da) return da;
         if (this.lang === 'en' && en) return en;
@@ -55,7 +135,8 @@
          :style="'transform: scaleX(' + (window.scrollY / (document.body.scrollHeight - window.innerHeight)) + ')'"></div>
 
     <!-- Navigation -->
-    <nav :class="isScrolled ? 'bg-prestige-paper/90 backdrop-blur-md py-4 border-prestige-ink/10' : 'bg-transparent py-8 border-transparent'" 
+    <nav x-show="page === 'home'" 
+         :class="isScrolled ? 'bg-prestige-paper/90 backdrop-blur-md py-4 border-prestige-ink/10' : 'bg-transparent py-8 border-transparent'" 
          class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b">
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between gap-12">
             <div class="flex items-center gap-1 group cursor-pointer flex-shrink-0" @click="window.scrollTo({top: 0, behavior: 'smooth'})">
@@ -79,7 +160,7 @@
             <div class="hidden md:flex items-center gap-8 lg:gap-12">
                 <template x-for="link in [
                     { name: '首页', nameEn: 'Home', nameDa: 'Hjem', href: '#home' },
-                    { name: '团队', nameEn: 'Team', nameDa: 'Team', href: '#team' },
+                    { name: '我们是谁', nameEn: 'Who We Are', nameDa: 'Hvem er vi', href: '#team' },
                     { name: '业务领域', nameEn: 'Services', nameDa: 'Tjenester', href: '#services' },
                     { name: '影音资料', nameEn: 'Media', nameDa: 'Medier', href: '#media' },
                     { name: '活动动态', nameEn: 'Events', nameDa: 'Begivenheder', href: '#events' },
@@ -123,7 +204,7 @@
             <div class="px-6 py-8 flex flex-col gap-6">
                 <template x-for="link in [
                     { name: '首页', nameEn: 'Home', nameDa: 'Hjem', href: '#home' },
-                    { name: '团队', nameEn: 'Team', nameDa: 'Team', href: '#team' },
+                    { name: '我们是谁', nameEn: 'Who We Are', nameDa: 'Hvem er vi', href: '#team' },
                     { name: '业务领域', nameEn: 'Services', nameDa: 'Tjenester', href: '#services' },
                     { name: '影音资料', nameEn: 'Media', nameDa: 'Medier', href: '#media' },
                     { name: '活动动态', nameEn: 'Events', nameDa: 'Begivenheder', href: '#events' },
@@ -150,7 +231,9 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Main Content -->
+    <div x-show="page === 'home'">
+        <!-- Hero Section -->
     <section id="home" class="relative h-screen flex items-center overflow-hidden bg-[#0A0A0A]">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 scale-105 animate-pulse-slow shadow-inner">
@@ -185,12 +268,18 @@
     <!-- Team Section -->
     <section id="team" class="py-24 bg-prestige-paper border-b border-prestige-ink/5">
         <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mb-24">
+                <h2 class="text-prestige-gold font-serif text-5xl md:text-6xl mb-8" x-text="t('我们是谁', 'Who We Are', 'Hvem er vi')"></h2>
+                <p class="text-prestige-ink/70 text-lg md:text-xl font-light leading-relaxed serif-italic" 
+                   x-text="t('在这个加速重构的世界里，技术在连接万物，而艺术在唤醒人心。我们深知，音乐从来不只是音符的排列，它是人类共通的语言，是跨越文化、时空与阶层的最强共鸣。奥丁传媒诞生于对时代的敏锐洞察与对艺术的极致敬畏。我们不仅是一家音乐艺术公司，更是希望成为欧洲与中国的文化纽带，推动优秀的传统古典音乐在中欧之间传播与发展，无论是通过高水准的艺术现场、深度的音乐制作，优质的游学活动，还是启发性的艺术教育，我们致力于在浮躁的时代中，为个体提供精神的栖息地，用声音重构人与人之间的深度连接。我们坚信艺术具备赋能未来的力量。我们不仅发掘和助力新一代艺术家的成长，更致力于将艺术思维注入社会创新，让音乐成为推动社会向美、向善的力量。', 'In this world of accelerated reconstruction, technology is connecting everything, while art is awakening the human heart. We know that music is never just an arrangement of notes; it is a universal language of humanity, the strongest resonance across cultures, time, space, and class. Ordin Media was born from a keen insight into our times and an ultimate reverence for art. We are not just a music and arts company; we aspire to be the cultural link between Europe and China, promoting the dissemination and development of excellent traditional classical music between the two regions. Whether through high-level artistic performances, deep music production, quality study tours, or inspiring art education, we are committed to providing a spiritual sanctuary for individuals and reconstructing deep connections between people through sound in this restless age. We firmly believe that art possesses the power to empower the future. We not only discover and support the growth of a new generation of artists but also strive to inject artistic thinking into social innovation, making music a force for beauty and goodness in society.', 'I denne verden af accelereret rekonstruktion forbinder teknologien alt, mens kunsten vækker det menneskelige hjerte. Vi ved, at musik aldrig bare er en rækkefølge af noter; det er menneskehedens universelle sprog, den stærkeste resonans på tværs af kulturer, tid, rum og klasse. Ordin Media blev født ud fra en skarp indsigt i vores tid og en ultimativ ærefrygt for kunst. Vi er ikke kun et musik- og kunst firma; vi stræber efter at være det kulturelle bindeled mellem Europa og Kina og fremme formidlingen og udviklingen af fremragende traditionel klassisk musik mellem de to regioner. Uanset om det er gennem kunstneriske optrædener på højt niveau, dyb musikproduktion, kvalitetsstudieture eller inspirerende kunstuddannelse, er vi forpligtet til at tilbyde et åndeligt fristed for enkeltpersoner og genopbygge dybe forbindelser mellem mennesker gennem lyd i denne urolige tid. Vi tror fuldt og fast på, at kunst besidder kraften til at styrke fremtiden. Vi opdager og støtter ikke kun væksten af en ny generation af kunstnere, men stræber også efter at injicere kunstnerisk tænkning i social innovation, så musikken bliver en kraft for skønhed og godhed i samfundet.')"></p>
+            </div>
+
             <!-- Core Team -->
             <div class="mb-24">
                 <h3 class="text-prestige-gold font-serif text-3xl md:text-4xl mb-16 block border-l-4 border-prestige-gold pl-6 whitespace-nowrap" x-text="t('艺术总监', 'Artistic Directors', 'Kunstneriske ledere')"></h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 max-w-4xl gap-12">
                     <template x-for="member in [
-                        { name: '徐晨', nameEn: 'Xu Chen', nameDa: 'Xu Chen', role: '执行艺术总监 & 首席男高音', roleEn: 'Executive Artistic Director & Principal Tenor', roleDa: 'Administrerende kunstnerisk leder & Ledende tenor', description: '活跃于国际舞台的美声男高音，致力于将正统欧派美声带入中国。', descriptionEn: 'A lyric tenor active on international stages, dedicated to bringing authentic European Bel Canto to China.', descriptionDa: 'En lyrisk tenor aktiv på internationale scener, dedikeret til at bringe autentisk europæisk Bel Canto til Kina.', img: 'https://i.postimg.cc/MpCqJsxW/wei-xin-tu-pian-20260516234424.jpg', link: 'https://www.chenxutenor.com/' }
+                        { name: '徐晨', nameEn: 'Xu Chen', nameDa: 'Xu Chen', role: '执行艺术总监 & 首席男高音', roleEn: 'Executive Artistic Director & Principal Tenor', roleDa: 'Administrerende kunstnerisk leder & Ledende tenor', description: '活跃于国际舞台的美声男高音，致力于中欧古典音乐艺术文化交流。', descriptionEn: 'A lyric tenor active on international stages, dedicated to artistic and cultural exchange of Sino-European classical music.', descriptionDa: 'En lyrisk tenor aktiv på internationale scener, dedikeret til kunstnerisk og kulturel udveksling af kinesisk-europæisk klassisk musik.', img: 'https://i.postimg.cc/MpCqJsxW/wei-xin-tu-pian-20260516234424.jpg', link: 'https://www.chenxutenor.com/' }
                     ]">
                         <div class="group">
                             <div class="aspect-[4/5] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 mb-6 rounded-sm relative">
@@ -201,38 +290,18 @@
                             <p class="text-[10px] uppercase font-bold tracking-widest text-prestige-gold mb-4" x-text="t(member.role, member.roleEn, member.roleDa)"></p>
                             <p class="text-prestige-ink/60 text-sm font-light leading-relaxed mb-6" x-text="t(member.description, member.descriptionEn, member.descriptionDa)"></p>
                             <template x-if="member.link">
-                                <a :href="member.link" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-prestige-gold pb-1" x-text="t('个人简介', 'View Profile', 'Se profil')"></a>
+                                <a href="javascript:void(0)" 
+                                   @click="if(member.id) { selectedMember = memberProfiles[member.id]; page = 'profile'; window.scrollTo(0,0) } else { window.open(member.link, '_blank') }"
+                                   class="text-[10px] font-bold uppercase tracking-widest border-b border-prestige-gold pb-1" 
+                                   x-text="t('个人简介', 'View Profile', 'Se profil')"></a>
                             </template>
                         </div>
                     </template>
                 </div>
             </div>
 
-            <!-- Advisors -->
-            <div class="mb-24">
-                <h3 class="text-prestige-gold font-serif text-3xl md:text-4xl mb-16 block border-l-4 border-prestige-gold pl-6 whitespace-nowrap" x-text="t('国际艺术家顾问', 'International Artistic Advisors', 'Internationale kunstneriske rådgivere')"></h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 max-w-4xl gap-12">
-                    <template x-for="member in [
-                        { name: 'Salvatore Fisichella', nameEn: 'Salvatore Fisichella', nameDa: 'Salvatore Fisichella', role: '传奇男高音 & 国际艺术家顾问', roleEn: 'Legendary Tenor & International Artistic Advisor', roleDa: 'Legendarisk tenor og international kunstnerisk rådgiver', description: '当代贝尔坎托歌唱艺术的杰出代表，被誉为“最卓越的贝里尼歌唱家”。', descriptionEn: 'A pre-eminent representative of contemporary Bel Canto, described as the \'most exceptional Bellini singer\'.', descriptionDa: 'En fremtrædende repræsentant for moderne Bel Canto, beskrevet som den \'mest exceptionelle Bellini-sanger\'.', img: 'https://i.postimg.cc/26mV79L6/Salvatore-Fisichella-close-up.jpg' },
-                        { name: 'Francisco Araiza', nameEn: 'Francisco Araiza', nameDa: 'Francisco Araiza', role: '世界著名男高音 & 国际艺术家顾问', roleEn: 'World-Renowned Tenor & International Artistic Advisor', roleDa: 'Verdensberømt tenor og international kunstnerisk rådgiver', description: '莫扎特与罗西尼作品的最佳诠释者之一，当代最具影响力的抒情男高音歌唱家。', descriptionEn: 'One of the best interpreters of Mozart and Rossini, and one of the most influential lyric tenors of our time.', descriptionDa: 'En af de bedste fortolkere af Mozart og Rossini og en af de mest indflydelsesrige lyriske tenorer i vor tid.', img: 'https://i.postimg.cc/rpWK22LV/1900x1900-000000-80-0-0.jpg' },
-                        { name: 'Eva Hess Thaysen', nameEn: 'Eva Hess Thaysen', nameDa: 'Eva Hess Thaysen', role: '丹麦皇家音乐学院教授 & 国际艺术家顾问', roleEn: 'Professor at RDAM & International Artistic Advisor', roleDa: 'Professor ved DKDM og international kunstnerisk rådgiver', description: '著名丹麦女高音歌唱家，丹麦皇家音乐学院声乐系教授，深耕声乐教育领域，拥有丰富的国际舞台演出经验。', descriptionEn: 'Renowned Danish soprano and Professor at the Royal Danish Academy of Music, specializing in vocal pedagogy with extensive international experience.', descriptionDa: 'Anerkendt dansk sopran og professor ved Det Kongelige Danske Musikkonservatorium, specialiseret i sangpædagogik med omfattende international erfaring.', img: 'https://i.postimg.cc/5t6vTRsF/wei-xin-tu-pian-20260516230128.png' },
-                        { name: 'Anne Margrethe Dahl', nameEn: 'Anne Margrethe Dahl', nameDa: 'Anne Margrethe Dahl', role: '丹麦皇家音乐学院教授 & 国际艺术家顾问', roleEn: 'Professor at RDAM & International Artistic Advisor', roleDa: 'Professor ved DKDM og international kunstnerisk rådgiver', description: '著名丹麦女高音歌唱家，曾任丹麦皇家歌剧学院院长，现任 Karlstad 大学 Ingesund 音乐学院教授。', descriptionEn: 'Renowned Danish soprano, former Head of the Royal Danish Opera Academy, currently Professor at Ingesund School of Music, Karlstad University.', descriptionDa: 'Anerkendt dansk sopran, tidligere forstander for Det Kongelige Danske Operaakademi, nuværende professor ved Ingesund Musikhögskola, Karlstad Universitet.', img: 'https://i.postimg.cc/5tP0dBPH/anne-margrethe-dahl-26-1.jpg' }
-                    ]">
-                        <div class="group">
-                            <div class="aspect-[4/5] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 mb-6 rounded-sm relative">
-                                <img :src="member.img" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                                <div class="absolute inset-0 border border-prestige-ink/5 group-hover:border-prestige-gold/30 transition-colors"></div>
-                            </div>
-                            <h3 class="font-serif text-2xl mb-1 group-hover:text-prestige-gold transition-colors" x-text="t(member.name, member.nameEn, member.nameDa)"></h3>
-                            <p class="text-[10px] uppercase font-bold tracking-widest text-prestige-gold mb-4" x-text="t(member.role, member.roleEn, member.roleDa)"></p>
-                            <p class="text-prestige-ink/60 text-sm font-light leading-relaxed mb-6" x-text="t(member.description, member.descriptionEn, member.descriptionDa)"></p>
-                        </div>
-                    </template>
-                </div>
-            </div>
-
             <!-- Administrative -->
-            <div class="mb-24 last:mb-0">
+            <div class="mb-24">
                 <h3 class="text-prestige-gold font-serif text-3xl md:text-4xl mb-16 block border-l-4 border-prestige-gold pl-6 whitespace-nowrap" x-text="t('行政策划', 'Administrative Planning', 'Administrativ planlægning')"></h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 max-w-5xl gap-12">
                     <template x-for="member in [
@@ -248,6 +317,35 @@
                             <h3 class="font-serif text-xl mb-1 group-hover:text-prestige-gold transition-colors" x-text="t(member.name, member.nameEn, member.nameDa)"></h3>
                             <p class="text-[10px] uppercase font-bold tracking-widest text-prestige-gold mb-4" x-text="t(member.role, member.roleEn, member.roleDa)"></p>
                             <p class="text-prestige-ink/60 text-xs font-light leading-relaxed mb-6" x-text="t(member.description, member.descriptionEn, member.descriptionDa)"></p>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Advisors -->
+            <div class="mb-24 last:mb-0">
+                <h3 class="text-prestige-gold font-serif text-3xl md:text-4xl mb-16 block border-l-4 border-prestige-gold pl-6 whitespace-nowrap" x-text="t('国际艺术家顾问', 'International Artistic Advisors', 'Internationale kunstneriske rådgivere')"></h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 max-w-4xl gap-12">
+                    <template x-for="member in [
+                        { id: 'salvatore-fisichella', name: 'Salvatore Fisichella', nameEn: 'Salvatore Fisichella', nameDa: 'Salvatore Fisichella', role: '传奇男高音 & 国际艺术家顾问', roleEn: 'Legendary Tenor & International Artistic Advisor', roleDa: 'Legendarisk tenor og international kunstnerisk rådgiver', description: '当代贝尔坎托歌唱艺术的杰出代表，被誉为“最卓越的贝里尼歌唱家”。', descriptionEn: 'A pre-eminent representative of contemporary Bel Canto, described as the \'most exceptional Bellini singer\'.', descriptionDa: 'En fremtrædende repræsentant for moderne Bel Canto, beskrevet som den \'mest exceptionelle Bellini-sanger\'.', img: 'https://i.postimg.cc/26mV79L6/Salvatore-Fisichella-close-up.jpg', link: 'https://en.wikipedia.org/wiki/Salvatore_Fisichella' },
+                        { id: 'francisco-araiza', name: 'Francisco Araiza', nameEn: 'Francisco Araiza', nameDa: 'Francisco Araiza', role: '世界著名男高音 & 国际艺术家顾问', roleEn: 'World-Renowned Tenor & International Artistic Advisor', roleDa: 'Verdensberømt tenor og international kunstnerisk rådgiver', description: '莫扎特与罗西尼作品的最佳诠释者之一，当代最具影响力的抒情男高音歌唱家。', descriptionEn: 'One of the best interpreters of Mozart and Rossini, and one of the most influential lyric tenors of our time.', descriptionDa: 'En af de bedste fortolkere af Mozart og Rossini og en af de mest indflydelsesrige lyriske tenorer i vor tid.', img: 'https://i.postimg.cc/rpWK22LV/1900x1900-000000-80-0-0.jpg', link: 'https://en.wikipedia.org/wiki/Francisco_Araiza' },
+                        { id: 'eva-hess-thaysen', name: 'Eva Hess Thaysen', nameEn: 'Eva Hess Thaysen', nameDa: 'Eva Hess Thaysen', role: '丹麦皇家音乐学院教授 & 国际艺术家顾问', roleEn: 'Professor at RDAM & International Artistic Advisor', roleDa: 'Professor ved DKDM og international kunstnerisk rådgiver', description: '著名丹麦女高音歌唱家，丹麦皇家音乐学院声乐系教授，深耕声乐教育领域，拥有丰富的国际舞台演出经验。', descriptionEn: 'Renowned Danish soprano and Professor at the Royal Danish Academy of Music, specializing in vocal pedagogy with extensive international experience.', descriptionDa: 'Anerkendt dansk sopran og professor ved Det Kongelige Danske Musikkonservatorium, specialiseret i sangpædagogik med omfattende international erfaring.', img: 'https://i.postimg.cc/5t6vTRsF/wei-xin-tu-pian-20260516230128.png', link: 'https://www.dkdm.dk/en/employee/eva-hess-thaysen' },
+                        { id: 'anne-margrethe-dahl', name: 'Anne Margrethe Dahl', nameEn: 'Anne Margrethe Dahl', nameDa: 'Anne Margrethe Dahl', role: '丹麦皇家音乐学院教授 & 国际艺术家顾问', roleEn: 'Professor at RDAM & International Artistic Advisor', roleDa: 'Professor ved DKDM og international kunstnerisk rådgiver', description: '著名丹麦女高音歌唱家，曾任丹麦皇家歌剧学院院长，现任 Karlstad 大学 Ingesund 音乐学院教授。', descriptionEn: 'Renowned Danish soprano, former Head of the Royal Danish Opera Academy, currently Professor at Ingesund School of Music, Karlstad University.', descriptionDa: 'Anerkendt dansk sopran, tidligere forstander for Det Kongelige Danske Operaakademi, nuværende professor ved Ingesund Musikhögskola, Karlstad Universitet.', img: 'https://i.postimg.cc/5tP0dBPH/anne-margrethe-dahl-26-1.jpg', link: 'https://www.kau.se/en/ingesund-school-music/about-ingesund-school-music/about-us/kontakta-oss/vara-larare/anne-margrethe' }
+                    ]">
+                        <div class="group">
+                            <div class="aspect-[4/5] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 mb-6 rounded-sm relative">
+                                <img :src="member.img" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 border border-prestige-ink/5 group-hover:border-prestige-gold/30 transition-colors"></div>
+                            </div>
+                            <h3 class="font-serif text-2xl mb-1 group-hover:text-prestige-gold transition-colors" x-text="t(member.name, member.nameEn, member.nameDa)"></h3>
+                            <p class="text-[10px] uppercase font-bold tracking-widest text-prestige-gold mb-4" x-text="t(member.role, member.roleEn, member.roleDa)"></p>
+                            <p class="text-prestige-ink/60 text-sm font-light leading-relaxed mb-6" x-text="t(member.description, member.descriptionEn, member.descriptionDa)"></p>
+                            <template x-if="member.link">
+                                <a href="javascript:void(0)" 
+                                   @click="if(member.id) { selectedMember = memberProfiles[member.id]; page = 'profile'; window.scrollTo(0,0) } else { window.open(member.link, '_blank') }"
+                                   class="text-[10px] font-bold uppercase tracking-widest border-b border-prestige-gold pb-1" 
+                                   x-text="t('个人简介', 'View Profile', 'Se profil')"></a>
+                            </template>
                         </div>
                     </template>
                 </div>
@@ -270,7 +368,8 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <template x-for="service in [
-                    { title: '音乐培训', titleEn: 'Music Training', titleDa: 'Musiktræning', description: '专业美声唱法辅导，提供线上与线下灵活教学，涵盖发声、技巧及曲目诠释。', descriptionEn: 'Professional Bel Canto coaching with online and offline options, covering vocal techniques and repertoire.', descriptionDa: 'Professionel Bel Canto-coaching med online- og offline-muligheder, der dækker sangteknikker og repertoire.', img: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop' },
+                    { title: '中丹文化交流', titleEn: 'Sino-Danish Cultural Exchange', titleDa: 'Dansk-kinesisk kulturel udveksling', description: '促进中国与丹麦在音乐与艺术领域的深度合作与对话。', descriptionEn: 'Promoting deep cooperation and dialogue between China and Denmark in music and art.', descriptionDa: 'Fremmer dybt samarbejde og dialog mellem Kina og Danmark inden for musik og kunst.', img: 'https://i.postimg.cc/bwkPj0F5/d529f75912ec720bfead7c1997b7dd9c.jpg' },
+                    { title: '音乐培训', titleEn: 'Music Training', titleDa: 'Musiktræning', description: '专业美声唱法辅导，提供线上与线下灵活教学，涵盖发声、技巧及曲目诠释。', descriptionEn: 'Professional Bel Canto coaching with online and offline options, covering vocal techniques and repertoire.', descriptionDa: 'Professionel Bel Canto-coaching med online- og offline-muligheder, der dækker sangteknikker og repertoire.', img: 'https://i.postimg.cc/XJGSQwFR/wei-xin-tu-pian-20260517120108.png' },
                     { title: '音乐大师班', titleEn: 'Masterclasses', titleDa: 'Masterclasses', description: '对话国际名师，在高强度的艺术交流中实现突破。', descriptionEn: 'Learn from international masters through intensive artistic exchange.', descriptionDa: 'Lær fra internationale mestre gennem intensiv kunstnerisk udveksling.', img: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?q=80&w=2070&auto=format&fit=crop' },
                     { title: '音乐会与交流', titleEn: 'Concerts & Exchange', titleDa: 'Koncerter og udveksling', description: '策划中欧高水准音乐会，搭建跨国艺术合作桥梁。', descriptionEn: 'Curating world-class concerts and bridging Sino-European artistic cooperation.', descriptionDa: 'Kuratering af koncerter i verdensklasse og brobygning af kinesisk-europæisk kunstnerisk samarbejde.', img: 'https://i.postimg.cc/7LCZM8LN/wei-xin-tu-pian-20251114232034.jpg' },
                     { title: '音乐游学访问', titleEn: 'Music Study Tours', titleDa: 'Musikstudieture', description: '深度走访欧洲知名剧院与学院，感悟艺术起源。', descriptionEn: 'Immersive tours of legendary European theaters and conservatories.', descriptionDa: 'Fordybende ture til legendariske europæiske teatre og konservatorier.', img: 'https://i.postimg.cc/1XFFWV5z/2834e9bea8d43bbf2850294f063b1363.jpg' },
@@ -329,16 +428,8 @@
             </div>
         </div>
 
-        <!-- Lightbox -->
-        <div x-show="selectedImage" @keydown.window.escape="selectedImage = null" class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-pointer" @click="selectedImage = null" x-cloak>
-            <button class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-[110] p-2 bg-white/10 rounded-full" @click="selectedImage = null">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
-            </button>
-            <img :src="selectedImage" class="max-w-full max-h-[85vh] object-contain shadow-2xl cursor-default" @click.stop="">
-        </div>
     </section>
 
-    <!-- Events Section -->
     <section id="events" class="py-24 bg-prestige-paper">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col mb-16">
@@ -348,9 +439,10 @@
             </div>
             <div class="space-y-12">
                 <template x-for="event in [
-                    { tag: 'Report', tagZh: '媒体报道', tagDa: 'Rapport', title: '“金嗓子”徐晨将亮相轻歌剧院“Amore musica”音乐会', titleEn: '\'Golden Voice\' Xu Chen to Perform in Operetta Theatre\'s \'Amore musica\' Concerts', titleDa: '\'Den gyldne stemme\' Xu Chen optræder i Operetteteatrets \'Amore musica\' koncerter', subtitle: 'European Media Highlights Xu Chen\'s Upcoming Performance in Latvia', subtitleZh: '欧洲媒体专题报道：徐晨受邀参加拉脱维亚 Operetes teātris 音乐会', subtitleDa: 'Europæiske medier fremhæver Xu Chens kommende optræden i Letland', date: 'October 2024', dateZh: '2024年10月', dateDa: 'Oktober 2024', img: 'https://i.postimg.cc/28DtYQRY/wei-xin-tu-pian-20260516231249.png', link: 'https://sejas.tvnet.lv/8382045/zelta-balss-ipasnieks-cens-sjujs-uzstasies-operetes-teatra-koncertos-amore-musica' },
+                    { tag: 'Report', tagZh: '媒体报道', tagDa: 'Rapport', title: '“金嗓子”徐晨将亮相轻歌剧院“Amore musica”音乐会', titleEn: '\'Golden Voice\' Xu Chen to Perform in Operetta Theatre\'s \'Amore musica\' Concerts', titleDa: '\'Den gyldne stemme\' Xu Chen optræder i Operetteteatrets \'Amore musica\' koncerter', subtitle: 'European Media Highlights Xu Chen\'s Upcoming Performance in Latvia', subtitleZh: '欧洲媒体专题报道：徐晨受邀参加拉脱维亚 Operetes teātris 音乐会', subtitleDa: 'Europæiske medier fremhæver Xu Chens kommende optræden i Letland', date: 'October 2025', dateZh: '2025年10月', dateDa: 'Oktober 2025', img: 'https://i.postimg.cc/28DtYQRY/wei-xin-tu-pian-20260516231249.png', link: 'https://sejas.tvnet.lv/8382045/zelta-balss-ipasnieks-cens-sjujs-uzstasies-operetes-teatra-koncertos-amore-musica' },
                     { tag: 'Masterclass', tagZh: '大师班', tagDa: 'Masterclass', title: '2024 夏季美声大师班', titleEn: '2024 Summer Bel Canto Masterclass', titleDa: '2024 Sommer Bel Canto Masterclass', subtitle: 'Summer Bel Canto Masterclass in Malta', subtitleZh: '马耳他夏季贝尔坎托大师班', subtitleDa: 'Sommer Bel Canto Masterclass på Malta', date: 'July 2024', dateZh: '2024年7月', dateDa: 'Juli 2024', img: 'https://i.postimg.cc/ydNVvMnz/wei-xin-tu-pian-20260516232416.jpg', link: 'https://timesofmalta.com/article/opera-star-jose-cura-to-deliver-masterclasses-in-malta.895654' },
-                    { tag: 'Tour', tagZh: '艺术游学', tagDa: 'Rundrejse', title: '欧洲顶级剧院艺术游览', titleEn: 'European Opera House Arts Tour', titleDa: 'Europæisk operahus kunstturné', subtitle: 'Elite Theater & Conservatory Tour', subtitleZh: '顶级剧院与音乐学院深度游览', subtitleDa: 'Elite teater- og konservatorietur', date: '2026', dateZh: '2026年', dateDa: '2026', img: 'https://i.postimg.cc/pdLT65X4/55810245ff1010e4e8bd95823dc19b50.jpg' }
+                    { tag: 'Tour', tagZh: '艺术游学', tagDa: 'Rundrejse', title: '欧洲顶级剧院艺术游览', titleEn: 'European Opera House Arts Tour', titleDa: 'Europæisk operahus kunstturné', subtitle: 'Elite Theater & Conservatory Tour', subtitleZh: '顶级剧院与音乐学院深度游览', subtitleDa: 'Elite teater- og konservatorietur', date: '2026', dateZh: '2026年', dateDa: '2026', img: 'https://i.postimg.cc/pdLT65X4/55810245ff1010e4e8bd95823dc19b50.jpg', link: 'https://www.wiener-staatsoper.at/en/' },
+                    { tag: 'Report', tagZh: '专题报道', tagDa: 'Særrapport', title: '艺术赋能未来：中欧古典音乐艺术文化交流新模式', titleEn: 'Empowering the Future through Art: New Modes of Sino-European Classical Music Exchange', titleDa: 'Styrkelse af fremtiden gennem kunst: Nye former for kinesisk-europæisk klassisk musikudveksling', subtitle: 'Executive Artistic Director Xu Chen on Reconstructing Human Connection Through Sound', subtitleZh: '奥丁传媒执行艺术总监徐晨：用声音重构人与人的深度连接', subtitleDa: 'Administrerende kunstnerisk leder Xu Chen om at genopbygge den menneskelige forbindelse gennem lyd', date: 'March 2026', dateZh: '2026年3月', dateDa: 'Marts 2026', img: 'https://i.postimg.cc/VNhRwhZB/wei-xin-tu-pian-20260517133305.png', link: 'https://mp.weixin.qq.com/s/BVtAdrBO_HqBM2neC8lhwg' }
                 ]">
                     <div class="flex flex-col lg:flex-row gap-10 group cursor-pointer" @click="if(event.link) window.open(event.link, '_blank')">
                         <div class="lg:w-1/3 aspect-video lg:aspect-[4/3] overflow-hidden relative">
@@ -392,8 +484,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contact" class="bg-prestige-ink text-white py-24 pb-12 border-t-4 border-prestige-gold overflow-hidden">
+        <!-- Footer -->
+        <footer id="contact" class="bg-prestige-ink text-white py-24 pb-12 border-t-4 border-prestige-gold overflow-hidden">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
                 <div class="lg:col-span-5">
@@ -465,7 +557,7 @@
                     </div>
 
                     <div class="mt-12 pt-8 border-t border-white/5">
-                        <p class="text-[9px] uppercase font-bold tracking-[0.2em] opacity-30 mb-6 text-white/50" x-text="t('支持支付方式', 'Supported Payments', 'Understøttede betalingsmetoder')"></p>
+                        <p class="text-[9px] uppercase font-bold opacity-30 mb-6 text-white/50" x-text="t('支持支付方式', 'Supported Payments', 'Understøttede betalingsmetoder')"></p>
                         <div class="flex flex-wrap gap-2">
                             <template x-for="pay in [
                                 { name: 'Airwallex', icon: 'https://raw.githubusercontent.com/2fasvg/2fasvg.github.io/master/assets/img/logo/airwallex.com/airwallex.com.svg' },
@@ -497,6 +589,99 @@
             </div>
         </div>
     </footer>
+    </div>
+
+    <!-- Generic Member Profile Page -->
+    <div x-show="page === 'profile'" x-cloak class="min-h-screen bg-prestige-paper pt-20">
+        <div class="fixed top-0 left-0 right-0 bg-prestige-paper/80 backdrop-blur-md z-50 border-b border-prestige-ink/5 px-6 py-4 flex justify-between items-center">
+            <h2 class="font-serif text-2xl" x-text="t(selectedMember?.name + ' 个人简历', selectedMember?.nameEn + ' Profile', selectedMember?.nameDa + ' Profil')"></h2>
+            <button @click="page = 'home'; selectedMember = null" class="p-2 hover:bg-prestige-ink/5 rounded-full transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+            </button>
+        </div>
+
+        <template x-if="selectedMember">
+            <div class="max-w-5xl mx-auto px-6 py-16">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-24">
+                    <div class="md:col-span-4">
+                        <div class="aspect-[3/4] overflow-hidden rounded-sm border border-prestige-ink/5 shadow-xl">
+                            <img :src="selectedMember.img" class="w-full h-full object-cover">
+                        </div>
+                        <div class="mt-8 space-y-4">
+                            <div class="flex items-center gap-3 text-prestige-gold">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                                <span class="text-sm font-bold uppercase tracking-widest" x-text="t(selectedMember.role, selectedMember.roleEn, selectedMember.roleDa)"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-8">
+                        <h1 class="text-5xl md:text-6xl font-serif mb-6" x-text="t(selectedMember.name, selectedMember.nameEn, selectedMember.nameDa)"></h1>
+                        <p class="text-prestige-gold font-bold tracking-[0.2em] mb-8 uppercase" x-text="t(selectedMember.taglineZh, selectedMember.taglineEn, selectedMember.taglineDa)"></p>
+                        <div class="prose prose-prestige max-w-none">
+                            <p class="text-lg text-prestige-ink/80 leading-relaxed mb-8 whitespace-pre-wrap font-light" 
+                               x-text="t(selectedMember.bioZh, selectedMember.bioEn, selectedMember.bioDa)"></p>
+                        </div>
+                        <template x-if="selectedMember.link">
+                            <div class="flex gap-4 mt-12">
+                                <a :href="selectedMember.link" target="_blank" class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest border border-prestige-ink px-6 py-3 hover:bg-prestige-ink hover:text-white transition-all transform hover:-translate-y-1">
+                                    <span x-text="selectedMember.nameEn === 'Xu Chen' ? t('访问官方网站', 'Official Website', 'Officiel hjemmeside') : t('参考资料', 'Reference', 'Reference')"></span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </a>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <template x-if="selectedMember.extraImages">
+                    <div class="border-t border-prestige-ink/10 pt-24">
+                        <div class="flex items-center justify-between mb-12">
+                            <h3 class="text-3xl font-serif" x-text="t('获奖及媒体报道', 'Awards & Media Coverage', 'Priser og mediedækning')"></h3>
+                            <div class="w-24 h-[1px] bg-prestige-gold hidden md:block"></div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                            <template x-for="cert in selectedMember.extraImages">
+                                <div class="aspect-[4/5] bg-white group cursor-zoom-in relative overflow-hidden border border-prestige-ink/5" @click="selectedImage = cert">
+                                    <img :src="cert" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                    <div class="absolute inset-0 bg-prestige-ink/0 group-hover:bg-prestige-ink/20 transition-all flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-hover:opacity-100 transition-opacity"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+                
+                <div class="mt-24 text-center">
+                    <button @click="page = 'home'; selectedMember = null" class="text-xs font-bold uppercase tracking-widest border-b border-prestige-ink pb-1 hover:text-prestige-gold hover:border-prestige-gold transition-colors" x-text="t('返回首页', 'Back to Home', 'Tilbage til hjem')"></button>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <!-- Lightbox (Global) -->
+    <div x-show="selectedImage" 
+         @keydown.window.escape="selectedImage = null" 
+         class="fixed inset-0 z-[200] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-pointer" 
+         @click="selectedImage = null" 
+         x-cloak 
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0">
+        <button class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-[210] p-2 bg-white/10 rounded-full" @click="selectedImage = null">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+        </button>
+        <img :src="selectedImage" 
+             class="max-w-full max-h-[85vh] object-contain shadow-2xl cursor-default transition-transform duration-500" 
+             @click.stop=""
+             x-show="selectedImage"
+             x-transition:enter="transition ease-out duration-500"
+             x-transition:enter-start="scale-95 opacity-0"
+             x-transition:enter-end="scale-100 opacity-100">
+    </div>
 
 </body>
 </html>

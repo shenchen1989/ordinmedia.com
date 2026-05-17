@@ -13,9 +13,9 @@ const events = [
     subtitle: 'European Media Highlights Xu Chen\'s Upcoming Performance in Latvia',
     subtitleZh: '欧洲媒体专题报道：徐晨受邀参加拉脱维亚 Operetes teātris 音乐会',
     subtitleDa: 'Europæiske medier fremhæver Xu Chens kommende optræden i Letland',
-    date: 'October 2024',
-    dateZh: '2024年10月',
-    dateDa: 'Oktober 2024',
+    date: 'October 2025',
+    dateZh: '2025年10月',
+    dateDa: 'Oktober 2025',
     img: 'https://i.postimg.cc/28DtYQRY/wei-xin-tu-pian-20260516231249.png',
     link: 'https://sejas.tvnet.lv/8382045/zelta-balss-ipasnieks-cens-sjujs-uzstasies-operetes-teatra-koncertos-amore-musica'
   },
@@ -48,7 +48,24 @@ const events = [
     date: '2026',
     dateZh: '2026年',
     dateDa: '2026',
-    img: 'https://i.postimg.cc/pdLT65X4/55810245ff1010e4e8bd95823dc19b50.jpg'
+    img: 'https://i.postimg.cc/pdLT65X4/55810245ff1010e4e8bd95823dc19b50.jpg',
+    link: 'https://www.wiener-staatsoper.at/en/'
+  },
+  {
+    tag: 'Report',
+    tagZh: '专题报道',
+    tagDa: 'Særrapport',
+    title: '艺术赋能未来：中欧古典音乐艺术文化交流新模式',
+    titleEn: 'Empowering the Future through Art: New Modes of Sino-European Classical Music Exchange',
+    titleDa: 'Styrkelse af fremtiden gennem kunst: Nye former for kinesisk-europæisk klassisk musikudveksling',
+    subtitle: 'Executive Artistic Director Xu Chen on Reconstructing Human Connection Through Sound',
+    subtitleZh: '奥丁传媒执行艺术总监徐晨：用声音重构人与人的深度连接',
+    subtitleDa: 'Administrerende kunstnerisk leder Xu Chen om at genopbygge den menneskelige forbindelse gennem lyd',
+    date: 'March 2026',
+    dateZh: '2026年3月',
+    dateDa: 'Marts 2026',
+    img: 'https://i.postimg.cc/VNhRwhZB/wei-xin-tu-pian-20260517133305.png',
+    link: 'https://mp.weixin.qq.com/s/BVtAdrBO_HqBM2neC8lhwg'
   }
 ];
 

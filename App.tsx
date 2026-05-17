@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Team from './components/Team';
@@ -5,12 +6,27 @@ import Services from './components/Services';
 import MediaGallery from './components/MediaGallery';
 import Events from './components/Events';
 import Footer from './components/Footer';
-import {motion, useScroll, useSpring} from 'motion/react';
+import {motion, useScroll, useSpring, AnimatePresence} from 'motion/react';
 import { useLanguage } from './context/LanguageContext';
+import { MemberProfile, ProfileData } from './components/MemberProfile';
+import { memberProfiles } from './data/profiles';
 
 export default function App() {
   const { t } = useLanguage();
+  const [selectedProfile, setSelectedProfile] = useState<ProfileData | null>(null);
   const { scrollYProgress } = useScroll();
+
+  // Prevent scroll when profile is open
+  useEffect(() => {
+    if (selectedProfile) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedProfile]);
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -35,7 +51,7 @@ export default function App() {
         <Hero />
         
         <div className="relative z-10">
-          <Team />
+          <Team onShowMember={(id) => setSelectedProfile(memberProfiles[id])} />
           
           <div className="max-w-7xl mx-auto px-6 py-24 flex items-center gap-10 opacity-10">
             <div className="h-[1px] flex-1 bg-prestige-ink" />
@@ -78,6 +94,15 @@ export default function App() {
 
         <Footer />
       </motion.div>
+
+      <AnimatePresence>
+        {selectedProfile && (
+          <MemberProfile 
+            member={selectedProfile} 
+            onClose={() => setSelectedProfile(null)} 
+          />
+        )}
+      </AnimatePresence>
     </main>
   );
 }

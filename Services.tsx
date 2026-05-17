@@ -1,8 +1,18 @@
 import {motion} from 'motion/react';
-import {BookOpen, Users, Music2, PlaneTakeoff, Trees} from 'lucide-react';
+import {BookOpen, Users, Music2, PlaneTakeoff, Trees, Globe} from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const services = [
+  {
+    title: '中丹文化交流',
+    titleEn: 'Sino-Danish Cultural Exchange',
+    titleDa: 'Dansk-kinesisk kulturel udveksling',
+    description: '促进中国与丹麦在音乐与艺术领域的深度合作与对话。',
+    descriptionEn: 'Promoting deep cooperation and dialogue between China and Denmark in music and art.',
+    descriptionDa: 'Fremmer dybt samarbejde og dialog mellem Kina og Danmark inden for musik og kunst.',
+    icon: Globe,
+    img: 'https://i.postimg.cc/bwkPj0F5/d529f75912ec720bfead7c1997b7dd9c.jpg'
+  },
   {
     title: '音乐培训',
     titleEn: 'Music Training',
@@ -11,7 +21,7 @@ const services = [
     descriptionEn: 'Professional Bel Canto coaching with online and offline options, covering vocal techniques and repertoire.',
     descriptionDa: 'Professionel Bel Canto-coaching med online- og offline-muligheder, der dækker sangteknikker og repertoire.',
     icon: Music2,
-    img: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop'
+    img: 'https://i.postimg.cc/XJGSQwFR/wei-xin-tu-pian-20260517120108.png'
   },
   {
     title: '音乐大师班',

@@ -19,7 +19,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: '首页', nameEn: 'Home', nameDa: 'Hjem', href: '#home' },
-    { name: '团队', nameEn: 'Team', nameDa: 'Team', href: '#team' },
+    { name: '我们是谁', nameEn: 'Who We Are', nameDa: 'Hvem er vi', href: '#team' },
     { name: '业务领域', nameEn: 'Services', nameDa: 'Tjenester', href: '#services' },
     { name: '影音资料', nameEn: 'Media', nameDa: 'Medier', href: '#media' },
     { name: '活动动态', nameEn: 'Events', nameDa: 'Begivenheder', href: '#events' },

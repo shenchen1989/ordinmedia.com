@@ -4,15 +4,16 @@ import { cn } from '@/src/lib/utils';
 
 const coreTeam = [
   {
+    id: 'xu-chen',
     name: '徐晨',
     nameEn: 'Xu Chen',
     nameDa: 'Xu Chen',
     role: '执行艺术总监 & 首席男高音',
     roleEn: 'Executive Artistic Director & Principal Tenor',
     roleDa: 'Administrerende kunstnerisk leder & Ledende tenor',
-    description: '活跃于国际舞台的美声男高音，致力于将正统欧派美声带入中国。',
-    descriptionEn: 'A lyric tenor active on international stages, dedicated to bringing authentic European Bel Canto to China.',
-    descriptionDa: 'En lyrisk tenor aktiv på internationale scener, dedikeret til at bringe autentisk europæisk Bel Canto til Kina.',
+    description: '活跃于国际舞台的美声男高音，致力于中欧古典音乐艺术文化交流。',
+    descriptionEn: 'A lyric tenor active on international stages, dedicated to artistic and cultural exchange of Sino-European classical music.',
+    descriptionDa: 'En lyrisk tenor aktiv på internationale scener, dedikeret til kunstnerisk og kulturel udveksling af kinesisk-europæisk klassisk musik.',
     img: 'https://i.postimg.cc/MpCqJsxW/wei-xin-tu-pian-20260516234424.jpg',
     link: 'https://www.chenxutenor.com/'
   }
@@ -20,6 +21,7 @@ const coreTeam = [
 
 const advisors = [
   {
+    id: 'salvatore-fisichella',
     name: 'Salvatore Fisichella',
     nameEn: 'Salvatore Fisichella',
     nameDa: 'Salvatore Fisichella',
@@ -33,6 +35,7 @@ const advisors = [
     link: 'https://en.wikipedia.org/wiki/Salvatore_Fisichella'
   },
   {
+    id: 'francisco-araiza',
     name: 'Francisco Araiza',
     nameEn: 'Francisco Araiza',
     nameDa: 'Francisco Araiza',
@@ -46,6 +49,7 @@ const advisors = [
     link: 'https://en.wikipedia.org/wiki/Francisco_Araiza'
   },
   {
+    id: 'eva-hess-thaysen',
     name: 'Eva Hess Thaysen',
     nameEn: 'Eva Hess Thaysen',
     nameDa: 'Eva Hess Thaysen',
@@ -59,6 +63,7 @@ const advisors = [
     link: 'https://www.dkdm.dk/en/employee/eva-hess-thaysen'
   },
   {
+    id: 'anne-margrethe-dahl',
     name: 'Anne Margrethe Dahl',
     nameEn: 'Anne Margrethe Dahl',
     nameDa: 'Anne Margrethe Dahl',
@@ -113,7 +118,7 @@ const planners = [
   }
 ];
 
-export default function Team() {
+export default function Team({ onShowMember }: { onShowMember?: (id: string) => void }) {
   const { t } = useLanguage();
 
   const TeamGrid = ({ members, title, delayOffset = 0, compact = false }: { members: any[], title: string, delayOffset?: number, compact?: boolean }) => (
@@ -170,8 +175,15 @@ export default function Team() {
             </p>
             {member.link && (
               <a 
-                href={member.link} 
-                target="_blank" 
+                href="javascript:void(0)" 
+                onClick={(e) => {
+                  if (member.id && onShowMember) {
+                    e.preventDefault();
+                    onShowMember(member.id);
+                  } else {
+                    window.open(member.link, '_blank');
+                  }
+                }}
                 className="text-[10px] font-bold uppercase tracking-widest border-b border-prestige-gold pb-1"
               >
                 {t('个人简介', 'View Profile', 'Se profil')}
@@ -186,22 +198,46 @@ export default function Team() {
   return (
     <section id="team" className="py-24 bg-prestige-paper">
       <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-3xl mb-24">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-prestige-gold font-serif text-5xl md:text-6xl mb-8"
+          >
+            {t('我们是谁', 'Who We Are', 'Hvem er vi')}
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-prestige-ink/70 text-lg md:text-xl font-light leading-relaxed serif-italic"
+          >
+            {t(
+              '在这个加速重构的世界里，技术在连接万物，而艺术在唤醒人心。我们深知，音乐从来不只是音符的排列，它是人类共通的语言，是跨越文化、时空与阶层的最强共鸣。奥丁传媒诞生于对时代的敏锐洞察与对艺术的极致敬畏。我们不仅是一家音乐艺术公司，更是希望成为欧洲与中国的文化纽带，推动优秀的传统古典音乐在中欧之间传播与发展，无论是通过高水准的艺术现场、深度的音乐制作，优质的游学活动，还是启发性的艺术教育，我们致力于在浮躁的时代中，为个体提供精神的栖息地，用声音重构人与人之间的深度连接。我们坚信艺术具备赋能未来的力量。我们不仅发掘和助力新一代艺术家的成长，更致力于将艺术思维注入社会创新，让音乐成为推动社会向美、向善的力量。',
+              'In this world of accelerated reconstruction, technology is connecting everything, while art is awakening the human heart. We know that music is never just an arrangement of notes; it is a universal language of humanity, the strongest resonance across cultures, time, space, and class. Ordin Media was born from a keen insight into our times and an ultimate reverence for art. We are not just a music and arts company; we aspire to be the cultural link between Europe and China, promoting the dissemination and development of excellent traditional classical music between the two regions. Whether through high-level artistic performances, deep music production, quality study tours, or inspiring art education, we are committed to providing a spiritual sanctuary for individuals and reconstructing deep connections between people through sound in this restless age. We firmly believe that art possesses the power to empower the future. We not only discover and support the growth of a new generation of artists but also strive to inject artistic thinking into social innovation, making music a force for beauty and goodness in society.',
+              'I denne verden af accelereret rekonstruktion forbinder teknologien alt, mens kunsten vækker det menneskelige hjerte. Vi ved, at musik aldrig bare er en rækkefølge af noter; det er menneskehedens universelle sprog, den stærkeste resonans på tværs af kulturer, tid, rum og klasse. Ordin Media blev født ud fra en skarp indsigt i vores tid og en ultimativ ærefrygt for kunst. Vi er ikke kun et musik- og kunstfirma; vi stræber efter at være det kulturelle bindeled mellem Europa og Kina og fremme formidlingen og udviklingen af fremragende traditionel klassisk musik mellem de to regioner. Uanset om det er gennem kunstneriske optrædener på højt niveau, dyb musikproduktion, kvalitetsstudieture eller inspirerende kunstuddannelse, er vi forpligtet til at tilbyde et åndeligt fristed for enkeltpersoner og genopbygge dybe forbindelser mellem mennesker gennem lyd i denne urolige tid. Vi tror fuldt og fast på, at kunst besidder kraften til at styrke fremtiden. Vi opdager og støtter ikke kun væksten af en ny generation af kunstnere, men stræber også efter at injicere kunstnerisk tænkning i social innovation, så musikken bliver en kraft for skønhed og godhed i samfundet.'
+            )}
+          </motion.p>
+        </div>
+
         <TeamGrid 
           members={coreTeam} 
           title={t('艺术总监', 'Artistic Directors', 'Kunstneriske ledere')} 
-        />
-        
-        <TeamGrid 
-          members={advisors} 
-          title={t('国际艺术家顾问', 'International Artistic Advisors', 'Internationale kunstneriske rådgivere')} 
-          delayOffset={2}
         />
 
         <TeamGrid 
           members={planners} 
           title={t('行政策划', 'Administrative Planning', 'Administrativ planlægning')} 
-          delayOffset={5}
+          delayOffset={coreTeam.length}
           compact
+        />
+        
+        <TeamGrid 
+          members={advisors} 
+          title={t('国际艺术家顾问', 'International Artistic Advisors', 'Internationale kunstneriske rådgivere')} 
+          delayOffset={coreTeam.length + planners.length}
         />
       </div>
     </section>
