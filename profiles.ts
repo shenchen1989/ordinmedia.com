@@ -119,21 +119,21 @@ Hans stemme kombinerer kraft med smidighed og udmærker sig ikke kun i det klass
     name: 'Eva Hess Thaysen',
     nameEn: 'Eva Hess Thaysen',
     nameDa: 'Eva Hess Thaysen',
-    role: '丹麦皇家音乐学院教授 & 国际艺术家顾问',
-    roleEn: 'Professor at RDAM & International Artistic Advisor',
-    roleDa: 'Professor ved DKDM og international kunstnerisk rådgiver',
+    role: '丹麦皇家音乐学院教授兼声乐系主任 & 国际艺术家顾问',
+    roleEn: 'Professor & Head of Vocal Dept. at RDAM & International Artistic Advisor',
+    roleDa: 'Professor og leder af sangafdelingen ved DKDM og international kunstnerisk rådgiver',
     taglineZh: '声乐教学法专家',
     taglineEn: 'Expert in Vocal Pedagogy',
-    taglineDa: 'Ekspert i vokalkpædagogik',
-    bioZh: `伊娃·赫斯·泰森（Eva Hess Thaysen）是著名的丹麦女高音歌唱家，现任丹麦皇家音乐学院（RDAM）声乐系教授。
+    taglineDa: 'Ekspert i vokalpædagogik',
+    bioZh: `伊娃·赫斯·泰森（Eva Hess Thaysen）是著名的丹麦女高音歌唱家，现任丹麦皇家音乐学院（RDAM）声乐教授兼声乐系主任。
 
-她在声乐教学法领域拥有极高的学术造诣，多年来致力于培养新一代国际声乐人才。她的演出足迹遍布欧洲，尤其在德语艺术歌曲和当代作品的诠释上享有盛誉。作为教育家，她擅长挖掘学生的潜力，帮助他们在那充满挑战的国际艺术舞台上找到个人特色。`,
-    bioEn: `Eva Hess Thaysen is a renowned Danish soprano and Professor at the Royal Danish Academy of Music (RDAM).
+她在声乐教学法领域拥有极高的学术造诣，二十年来致力于培养新一代国际声乐人才，她的学生已走上世界各大知名歌剧院与音乐节的舞台。作为歌剧演员，伊娃·赫斯·泰森的演出足迹遍布欧洲，无论是在传统剧目还是当代作品的演绎上都游刃有余，并精通贝尔坎托（Bel Canto）美声剧目。她多次担任国际声乐比赛评委，并致力于丹麦声乐作品的国际推广研究。作为教育家，她擅长挖掘学生的潜力，帮助他们在那充满挑战的国际艺术舞台上找到个人特色。`,
+    bioEn: `Eva Hess Thaysen is a renowned Danish soprano, Professor of Voice and Head of the Vocal Department at the Royal Danish Academy of Music (RDAM).
 
-She possesses supreme academic expertise in vocal pedagogy and has dedicated years to training the next generation of international vocal talent. Her performances span Europe, where she is particularly celebrated for her interpretations of German Lieder and contemporary works. As an educator, she excels at unlocking student potential, helping them find their unique identity in the challenging international arts landscape.`,
-    bioDa: `Eva Hess Thaysen er en anerkendt dansk sopran og professor ved Det Kongelige Danske Musikkonservatorium (DKDM).
+She possesses supreme academic expertise in vocal pedagogy and has dedicated two decades to training the next generations of international vocal talent. Her students have gone on to perform at major international opera houses and festivals. As an operasinger Eva Hess Thaysen has performed all over Europe equally at home in standard and contemporary roles, and specializing in the bel canto repertoire. She serves on the jury of international vocal competitions and has dedicated her research to the international dissemination of Danish vocal music. As an educator, she excels at unlocking student potential, helping them find their unique identity in the challenging international arts landscape.`,
+    bioDa: `Eva Hess Thaysen er en anerkendt dansk sopran, professor i sang og leder af sangafdelingen ved Det Kongelige Danske Musikkonservatorium (DKDM).
 
-Hun besidder enestående akademisk ekspertise inden for sangpædagogik og har dedikeret mange år til at uddanne den næste generation af internationale sangtalenter. Hendes optrædener spænder over hele Europa, hvor hun er særligt kendt for sine fortolkninger af tyske Lieder og moderne værker. Som underviser er hun fremragende til at forløse elevernes potentiale og hjælpe dem med at finde deres unikke identitet i det udfordrende internationale kunstlandskab.`,
+Hun besidder enestående akademisk ekspertise inden for sangpædagogik og har dedikeret to årtier til at uddanne de næste generationer af internationale sangtalenter. Hendes elever har optrådt på store internationale operahuse og festivaler. Som operasanger har Eva Hess Thaysen optrådt i hele Europa, lige så hjemme i standard- som i moderne roller, og med speciale i bel canto-repertoiret. Hun sidder i juryen ved internationale sangkonkurrencer og har dedikeret sin forskning til den internationale udbredelse af dansk vokalmusik. Som underviser er hun fremragende til at forløse elevernes potentiale og hjælpe dem med at finde deres unikke identitet i det udfordrende internationale kunstlandskab.`,
     img: 'https://i.postimg.cc/5t6vTRsF/wei-xin-tu-pian-20260516230128.png',
     link: 'https://www.dkdm.dk/en/employee/eva-hess-thaysen'
   },
@@ -142,21 +142,21 @@ Hun besidder enestående akademisk ekspertise inden for sangpædagogik og har de
     name: 'Anne Margrethe Dahl',
     nameEn: 'Anne Margrethe Dahl',
     nameDa: 'Anne Margrethe Dahl',
-    role: '丹麦皇家音乐学院教授 & 国际艺术家顾问',
-    roleEn: 'Professor at RDAM & International Artistic Advisor',
-    roleDa: 'Professor ved DKDM og international kunstnerisk rådgiver',
-    taglineZh: '资深歌唱家与音乐教育家',
-    taglineEn: 'Veteran Singer & Music Educator',
-    taglineDa: 'Erfaren sanger og musikpædagog',
-    bioZh: `安妮·玛格丽特·达尔（Anne Margrethe Dahl）是丹麦顶尖的女高音歌唱家及艺术教育家。
+    role: '卡尔斯塔德大学教授 & 国际艺术家顾问',
+    roleEn: 'Professor at Karlstad University & International Artistic Advisor',
+    roleDa: 'Professor ved Karlstad Universitet og international kunstnerisk rådgiver',
+    taglineZh: '瑞典卡尔斯塔德大学教授 • 挪威国家歌剧院与芭蕾舞团 WOYS 负责人',
+    taglineEn: 'Professor at Karlstad University, Sweden • Head of WOYS, The Norwegian National Opera and Ballett',
+    taglineDa: 'Professor ved Karlstad Universitet, Sverige • Leder af WOYS, Den Norske Opera & Ballett',
+    bioZh: `安妮·玛格丽特·达尔（Anne Margrethe Dahl）是著名的歌唱家与艺术教育家，现任瑞典卡尔斯塔德大学（Karlstad University）教授，以及挪威国家歌剧院与芭蕾舞团（The Norwegian National Opera and Ballett）WOYS 负责人。
 
-她曾长期担任丹麦皇家歌剧学院院长，在艺术管理与人才选拔方面经验丰厚。她的舞台经验极其丰富，曾在哥本哈根、柏林、斯德哥尔摩等地的歌剧院担任主角。目前她担任多所音乐学院的客座教授，并作为评委活跃于各大国际声乐比赛。`,
-    bioEn: `Anne Margrethe Dahl is a leading Danish soprano and arts educator.
+她曾长期担任丹麦皇家歌剧学院院长，在艺术管理与人才选拔方面经验丰厚。她的舞台经验极其丰富，曾在哥本哈根、柏林、斯德哥尔摩等地的歌剧院担任主角。`,
+    bioEn: `Anne Margrethe Dahl is a leading soprano and arts educator, Professor at Karlstad University, Sweden, and Head of WOYS at The Norwegian National Opera and Ballett!
 
-She served for many years as the Head of the Royal Danish Opera Academy, gaining extensive experience in artistic management and talent selection. Her stage experience is exceptionally rich, having performed lead roles at opera houses in Copenhagen, Berlin, and Stockholm. She is currently a visiting professor at multiple conservatories and remains active as a judge for major international vocal competitions.`,
-    bioDa: `Anne Margrethe Dahl er en førende dansk sopran og kunstunderviser.
+She served for many years as the Head of the Royal Danish Opera Academy, gaining extensive experience in artistic management and talent selection. Her stage experience is exceptionally rich, having performed lead roles at opera houses in Copenhagen, Berlin, and Stockholm.`,
+    bioDa: `Anne Margrethe Dahl er en førende sopran og kunstunderviser, professor ved Karlstad Universitet, Sverige, og leder af WOYS ved Den Norske Opera & Ballett.
 
-Hun fungerede i mange år som forstander for Det Kongelige Danske Operaakademi og har opnået omfattende erfaring inden for kunstnerisk ledelse og talentudvælgelse. Hendes sceneerfaring er usædvanligt rig, og hun har optrådt i hovedroller på operahuse i København, Berlin og Stockholm. Hun er i øjeblikket gæsteprofessor ved flere konservatorier og er fortsat aktiv som dommer ved store internationale sangkonkurrencer.`,
+Hun fungerede i mange år som forstander for Det Kongelige Danske Operaakademi og har opnået omfattende erfaring inden for kunstnerisk ledelse og talentudvælgelse. Hendes sceneerfaring er usædvanligt rig, og hun har optrådt i hovedroller på operahuse i København, Berlin og Stockholm.`,
     img: 'https://i.postimg.cc/5tP0dBPH/anne-margrethe-dahl-26-1.jpg',
     link: 'https://www.kau.se/en/ingesund-school-music/about-ingesund-school-music/about-us/kontakta-oss/vara-larare/anne-margrethe'
   }
